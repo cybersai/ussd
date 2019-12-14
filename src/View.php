@@ -19,9 +19,9 @@ namespace Cybersai\USSD;
 abstract class View
 {
     /** @var string $content Content of the ussd view. */
-    private $content;
+    protected $content;
     /** @var string $next ClassName of the next ussd view. */
-    private $next;
+    protected $next;
 
     /**
      * It returns the title of menu.
@@ -30,10 +30,16 @@ abstract class View
     abstract protected function getTitle();
 
     /**
-     * It returns the section separator of the menu.
+     * It returns the section separator of the menu between title and body.
      * @return string
      */
-    abstract protected function getSectionSeparator();
+    abstract protected function getSectionSeparatorOne();
+
+    /**
+     * It returns the section separator of the menu between body and footer.
+     * @return string
+     */
+    abstract protected function getSectionSeparatorTwo();
 
     /**
      * It returns the body of the menu.

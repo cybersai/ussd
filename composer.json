@@ -9,6 +9,11 @@
             "email": "isaacsai030@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Cybersai\\USSD\\": "src"
+        }
+    },
     "minimum-stability": "dev",
     "require": {}
 }

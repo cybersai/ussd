@@ -1,0 +1,14 @@
+{
+    "name": "cybersai/ussd",
+    "description": "A library to facilitate the development of ussd for various mobile operators",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "CyberSai",
+            "email": "isaacsai030@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

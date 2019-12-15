@@ -33,7 +33,9 @@ abstract class TemplateView implements View
      * It returns the body of the menu.
      * @return string
      */
-    abstract protected function getBody();
+    protected function getBody() {
+        return $this->content;
+    }
 
     /**
      * It returns the footer of the menu.

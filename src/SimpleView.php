@@ -11,8 +11,8 @@ namespace Cybersai\USSD;
 
 /**
  * Class SimpleView help to create a simple ussd view.
- * It inherits for the abstract View Class and generates
- * a view with just one a body without title or footer.
+ * It inherits from the abstract View Class and generates
+ * a view with just a body without title or footer.
  * @package Cybersai\USSD
  */
 class SimpleView extends TemplateView
@@ -29,26 +29,37 @@ class SimpleView extends TemplateView
         $this->next = $next;
     }
 
+    /**
+     * Implement getTitle of TemplateView.
+     * @return string
+     */
     protected function getTitle()
     {
         return "";
     }
 
-    protected function getSectionSeparatorOne()
+    /**
+     * Implement getSectionSeparatorOne of View.
+     * @return string
+     */
+    public function getSectionSeparatorOne()
     {
         return "";
     }
 
-    protected function getSectionSeparatorTwo()
+    /**
+     * Implement getSectionSeparatorTwo of View.
+     * @return string
+     */
+    public function getSectionSeparatorTwo()
     {
         return "";
     }
 
-    protected function getBody()
-    {
-        return $this->content;
-    }
-
+    /**
+     * Implement getFooter of TemplateView.
+     * @return string
+     */
     protected function getFooter()
     {
         return "";

@@ -11,7 +11,7 @@ namespace Cybersai\USSD;
 
 /**
  * Class SimpleView help to create a simple ussd view.
- * It inherits from the abstract View Class and generates
+ * It inherits from the abstract TemplateView Class and generates
  * a view with just a body without title or footer.
  * @package Cybersai\USSD
  */

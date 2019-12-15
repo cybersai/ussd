@@ -16,8 +16,10 @@ namespace Cybersai\USSD;
  * to generate the necessary view for the USSD.
  * @package Cybersai\USSD
  */
-abstract class TemplateListView extends TemplateView
+abstract class TemplateListView extends TemplateView implements ListView
 {
+    /** @var string $title Title of the ListView */
+    protected $title;
     /** @var mixed[] $list */
     protected $list;
     /** @var int $page */
@@ -27,11 +29,6 @@ abstract class TemplateListView extends TemplateView
 
     abstract protected function getSubTitle();
     abstract public function getSubTitleSeparator();
-    abstract function getListSeparator();
-    abstract function getNumberingSeparator();
-    abstract function getNumberingForIndex($index);
-    abstract function getSubFooterSeparator();
-    abstract function getSubFooter();
     public final function parseListToString()
     {
 
@@ -42,6 +39,6 @@ abstract class TemplateListView extends TemplateView
      */
     protected final function getBody()
     {
-        return "{$this->getSubTitle()}{$this->getSubTitleSeparator()}{$this->getListAsString()}";
+        return "{$this->getSubTitle()}{$this->getSubTitleSeparator()}{$this->parseListToString()}{$this->getSubFooterSeparator()}{$this->getSubFooter()}";
     }
 }

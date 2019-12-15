@@ -16,7 +16,7 @@ namespace Cybersai\USSD;
  * to generate the necessary view for the USSD.
  * @package Cybersai\USSD
  */
-abstract class TemplateView implements ListView
+abstract class TemplateView implements View
 {
     /** @var string $content Content of the ussd view. */
     protected $content;

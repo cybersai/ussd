@@ -16,7 +16,7 @@ namespace Cybersai\USSD;
  * to generate the necessary view for the USSD.
  * @package Cybersai\USSD
  */
-abstract class TemplateView
+abstract class TemplateView implements View
 {
     /** @var string $content Content of the ussd view. */
     protected $content;
@@ -28,18 +28,6 @@ abstract class TemplateView
      * @return string
      */
     abstract protected function getTitle();
-
-    /**
-     * It returns the section separator of the menu between title and body.
-     * @return string
-     */
-    abstract protected function getSectionSeparatorOne();
-
-    /**
-     * It returns the section separator of the menu between body and footer.
-     * @return string
-     */
-    abstract protected function getSectionSeparatorTwo();
 
     /**
      * It returns the body of the menu.
@@ -57,7 +45,7 @@ abstract class TemplateView
      * It generates the final output string for the ussd view.
      * @return string
      */
-    public final function parseToSting() {
+    public final function parseToString() {
         return "
             {$this->getTitle()}
             {$this->getSectionSeparatorOne()}

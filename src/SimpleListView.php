@@ -60,7 +60,14 @@ class SimpleListView extends TemplateListView
 
     protected function getFooter()
     {
-        return "";
+        $msg = "";
+        if (ViewUtil::isFirstPage($this->page)) {
+            $msg .= "00. Next Page\n";
+        }
+        if (ViewUtil::isLastPage($this->page, $this->number_per_page, $this->list)) {
+            $msg .= "*. Previous Page\n";
+        }
+        return $msg;
     }
 
     function getSectionSeparatorOne()

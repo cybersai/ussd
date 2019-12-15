@@ -30,4 +30,15 @@ final class ViewUtil
     {
         return $page * $number_per_page >= count($list);
     }
+
+    public static function getListStartIndex($page, $number_per_page)
+    {
+        return $page * $number_per_page - $number_per_page;
+    }
+
+    public static function getListEndLimit($page, $number_per_page, $list)
+    {
+        return self::isLastPage($page, $number_per_page, $list) ?
+            count($list) - ($page * $number_per_page - $number_per_page) : $number_per_page;
+    }
 }

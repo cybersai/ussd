@@ -21,6 +21,7 @@ interface ListView extends View
     function getListSeparator();
     function getNumberingSeparator();
     function getNumberingForIndex($index);
+    function getListItemForIndex($index);
     function getSubFooterSeparator();
     function getSubFooter();
     function parseListToString();

@@ -17,7 +17,25 @@ namespace Cybersai\USSD;
  */
 class SimpleListView extends TemplateListView
 {
+
     // TODO: make function static
+    /**
+     * SimpleListView constructor.
+     * @param string $title
+     * @param int $page
+     * @param int $number_per_page
+     * @param string[] $list
+     * @param string $next
+     */
+    public function __construct($title, $page, $number_per_page, $list, $next)
+    {
+        $this->title = $title;
+        $this->page = $page;
+        $this->number_per_page = $number_per_page;
+        $this->list = $list;
+        $this->next = $next;
+    }
+
     function getListSeparator()
     {
         return "\n";
@@ -31,6 +49,11 @@ class SimpleListView extends TemplateListView
     function getNumberingForIndex($index)
     {
         return $index + 1;
+    }
+
+    function getListItemForIndex($index)
+    {
+        return $this->list[$index];
     }
 
     function getSubFooterSeparator()
@@ -79,5 +102,4 @@ class SimpleListView extends TemplateListView
     {
         return "\n";
     }
-
 }

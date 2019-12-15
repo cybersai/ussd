@@ -72,4 +72,6 @@ class SimpleView extends TemplateView
     {
         return "";
     }
+
+
 }

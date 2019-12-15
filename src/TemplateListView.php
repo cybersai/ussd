@@ -31,7 +31,13 @@ abstract class TemplateListView extends TemplateView implements ListView
     abstract public function getSubTitleSeparator();
     public final function parseListToString()
     {
-
+        $msg = "";
+        $start_index = ViewUtil::getListStartIndex($this->page, $this->number_per_page);
+        $limit = ViewUtil::getListEndLimit($this->page, $this->number_per_page, $this->list);
+        for($i = 0;$i < $limit;$i++) {
+            $msg .= "{$this->getNumberingForIndex($i + $start_index)}{$this->getNumberingSeparator()}{$this->getListItemForIndex($i + $start_index)}{$this->getListSeparator()}";
+        }
+        return $msg;
     }
 
     /**

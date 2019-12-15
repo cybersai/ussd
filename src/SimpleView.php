@@ -15,8 +15,20 @@ namespace Cybersai\USSD;
  * a view with just one a body without title or footer.
  * @package Cybersai\USSD
  */
-class SimpleView extends View
+class SimpleView extends TemplateView
 {
+
+    /**
+     * SimpleView constructor.
+     * @param string $content
+     * @param string $next
+     */
+    public function __construct($content, $next)
+    {
+        $this->content = $content;
+        $this->next = $next;
+    }
+
     protected function getTitle()
     {
         return "";

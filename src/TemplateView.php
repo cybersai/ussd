@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Abstract class at src/View.php.
- * File containing abstract View class.
+ * Abstract class at src/TemplateView.php.
+ * File containing abstract TemplateView class.
  * @api
  * @author Isaac Adzah Sai
  * @version 1.0.0
@@ -10,13 +10,13 @@
 namespace Cybersai\USSD;
 
 /**
- * Abstract Class View define pattern to be followed by child classes.
+ * Abstract Class TemplateView define pattern to be followed by child classes.
  * This class is an abstract class.
  * It uses the Template Method Design pattern
  * to generate the necessary view for the USSD.
  * @package Cybersai\USSD
  */
-abstract class View
+abstract class TemplateView
 {
     /** @var string $content Content of the ussd view. */
     protected $content;
@@ -60,10 +60,18 @@ abstract class View
     public final function parseToSting() {
         return "
             {$this->getTitle()}
-            {$this->getSectionSeparator()}
+            {$this->getSectionSeparatorOne()}
             {$this->getBody()}
-            {$this->getSectionSeparator()}
+            {$this->getSectionSeparatorTwo()}
             {$this->getFooter()}
         ";
+    }
+
+    /**
+     * @return string
+     */
+    public function getNext()
+    {
+        return $this->next;
     }
 }

@@ -4,7 +4,7 @@
  * Interface at src/View.php.
  * File containing interface View class.
  * @api
- * @author Isaac Adzah Sai
+ * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
 namespace Cybersai\USSD;

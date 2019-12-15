@@ -4,7 +4,7 @@
  * Abstract class at src/TemplateView.php.
  * File containing abstract TemplateView class.
  * @api
- * @author Isaac Adzah Sai
+ * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
 namespace Cybersai\USSD;
@@ -16,7 +16,7 @@ namespace Cybersai\USSD;
  * to generate the necessary view for the USSD.
  * @package Cybersai\USSD
  */
-abstract class TemplateView implements View
+abstract class TemplateView implements ListView
 {
     /** @var string $content Content of the ussd view. */
     protected $content;
@@ -33,9 +33,7 @@ abstract class TemplateView implements View
      * It returns the body of the menu.
      * @return string
      */
-    protected function getBody() {
-        return $this->content;
-    }
+    abstract protected function getBody();
 
     /**
      * It returns the footer of the menu.
@@ -47,14 +45,9 @@ abstract class TemplateView implements View
      * It generates the final output string for the ussd view.
      * @return string
      */
-    public final function parseToString() {
-        return "
-            {$this->getTitle()}
-            {$this->getSectionSeparatorOne()}
-            {$this->getBody()}
-            {$this->getSectionSeparatorTwo()}
-            {$this->getFooter()}
-        ";
+    public final function parseToString()
+    {
+        return "{$this->getTitle()}{$this->getSectionSeparatorOne()}{$this->getBody()}{$this->getSectionSeparatorTwo()}{$this->getFooter()}";
     }
 
     /**

@@ -4,7 +4,7 @@
  * Class at src/SimpleView.php.
  * File containing SimpleView class.
  * @api
- * @author Isaac Adzah Sai
+ * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
 namespace Cybersai\USSD;
@@ -45,6 +45,14 @@ class SimpleView extends TemplateView
     public function getSectionSeparatorOne()
     {
         return "";
+    }
+
+    /**
+     * It returns the body of the menu.
+     * @return string
+     */
+    protected function getBody() {
+        return $this->content;
     }
 
     /**

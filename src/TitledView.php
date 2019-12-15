@@ -4,7 +4,7 @@
  * Class at src/TitledView.php.
  * File containing TitledView class.
  * @api
- * @author Isaac Adzah Sai
+ * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
 namespace Cybersai\USSD;
@@ -21,6 +21,19 @@ class TitledView extends SimpleView
     protected $title;
 
     /**
+     * TitledView constructor.
+     * @param string $title
+     * @param string $body
+     * @param string $next
+     */
+    public function __construct($title, $body, $next)
+    {
+        $this->title = $title;
+        parent::__construct($body, $next);
+    }
+
+
+    /**
      * Override the getTitle of SimpleView.
      * @return string
      */
@@ -28,4 +41,11 @@ class TitledView extends SimpleView
     {
         return $this->title;
     }
+
+    public function getSectionSeparatorOne()
+    {
+        return "\n";
+    }
+
+
 }

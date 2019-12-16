@@ -68,9 +68,11 @@ class MyViewGroup extends \Cybersai\USSD\Templates\TemplateViewGroup {
         ['00' => 'all'],
         ['99' => 'all']));
     # Set new UserInput
-    $router->acceptUserInput('00');
+    $router->acceptUserInput('2');
     # Get next view
     $outcome = $router->route();
+    # Save snap back to somewhere
+    $snap = $restore->snapshotHistory();
     #display view to user
     echo $outcome->parseToString();
     # END IF

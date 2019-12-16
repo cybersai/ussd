@@ -18,22 +18,30 @@ namespace Cybersai\USSD;
  */
 abstract class TemplateListView extends TemplateView implements ListView
 {
-    /** @var string $title Title of the ListView */
-    protected $title;
-    /** @var mixed[] $list */
-    protected $list;
-    /** @var int $page */
+    /** @var int $page Current Page Number */
     protected $page;
-    /** @var int $number_per_page */
+    /** @var int $number_per_page Total Number of Pages */
     protected $number_per_page;
+    /** @var string $sub_title Sub Title of USSD menu */
+    protected $sub_title = '';
+    /** @var string $sub_footer Sub Footer of USSD menu */
+    protected $sub_footer = '';
 
-    abstract protected function getSubTitle();
-    abstract public function getSubTitleSeparator();
+    protected function getSubTitle()
+    {
+        return $this->sub_title;
+    }
+
+    protected function getSubFooter()
+    {
+        return $this->sub_footer;
+    }
+
     public final function parseListToString()
     {
         $msg = "";
         $start_index = ViewUtil::getListStartIndex($this->page, $this->number_per_page);
-        $limit = ViewUtil::getListEndLimit($this->page, $this->number_per_page, $this->list);
+        $limit = ViewUtil::getListEndLimit($this->page, $this->number_per_page, $this->content);
         for($i = 0;$i < $limit;$i++) {
             $msg .= "{$this->getNumberingForIndex($i + $start_index)}{$this->getNumberingSeparator()}{$this->getListItemForIndex($i + $start_index)}{$this->getListSeparator()}";
         }
@@ -45,6 +53,6 @@ abstract class TemplateListView extends TemplateView implements ListView
      */
     protected final function getBody()
     {
-        return "{$this->getSubTitle()}{$this->getSubTitleSeparator()}{$this->parseListToString()}{$this->getSubFooterSeparator()}{$this->getSubFooter()}";
+        return "{$this->sub_title}{$this->getSubTitleSeparator()}{$this->parseListToString()}{$this->getSubFooterSeparator()}{$this->sub_footer}";
     }
 }

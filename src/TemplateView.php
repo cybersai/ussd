@@ -20,26 +20,17 @@ abstract class TemplateView implements View
 {
     /** @var string $content Content of the ussd view. */
     protected $content;
+    /** @var string $title Title of the USSD menu */
+    protected $title = '';
+    /** @var string $footer Footer of the USSD menu */
+    protected $footer = '';
     /** @var string $next ClassName of the next ussd view. */
     protected $next;
 
-    /**
-     * It returns the title of menu.
-     * @return string
-     */
-    abstract protected function getTitle();
-
-    /**
-     * It returns the body of the menu.
-     * @return string
-     */
-    abstract protected function getBody();
-
-    /**
-     * It returns the footer of the menu.
-     * @return string
-     */
-    abstract protected function getFooter();
+    protected function getBody()
+    {
+        return $this->content;
+    }
 
     /**
      * It generates the final output string for the ussd view.
@@ -47,7 +38,7 @@ abstract class TemplateView implements View
      */
     public final function parseToString()
     {
-        return "{$this->getTitle()}{$this->getSectionSeparatorOne()}{$this->getBody()}{$this->getSectionSeparatorTwo()}{$this->getFooter()}";
+        return "{$this->title}{$this->getSectionSeparatorOne()}{$this->getBody()}{$this->getSectionSeparatorTwo()}{$this->footer}";
     }
 
     /**

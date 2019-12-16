@@ -4,8 +4,11 @@
 namespace Cybersai\USSD\Router;
 
 
+use Cybersai\USSD\Exceptions\ViewNotFound;
 use Cybersai\USSD\Requests\USSDRequest;
 use Cybersai\USSD\Templates\TemplateView;
+use Cybersai\USSD\Templates\TemplateViewGroup;
+use Cybersai\USSD\Templates\TemplateViewValidator;
 
 class USSDRouter
 {
@@ -33,13 +36,26 @@ class USSDRouter
         return $this->request->getUserInput();
     }
 
+    /**
+     * @return TemplateView
+     * @throws ViewNotFound
+     */
     public function route()
     {
         // TODO: Make route accept ViewGroup and ViewValidator
         $view = $this->request->getLastView();
         $view = $this->validateView($view);
         $next_view_name = $view->getNext();
-        return new $next_view_name($this->request);
+        $object = new $next_view_name($this->request);
+        if ($object instanceof TemplateView) {
+            return $object;
+        } else if ($object instanceof TemplateViewGroup) {
+            return $object->getSelectedView();
+        } else if ($object instanceof TemplateViewValidator) {
+            return $object->getValidView();
+        } else {
+            throw new ViewNotFound();
+        }
     }
 
     /**

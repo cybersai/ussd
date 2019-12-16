@@ -4,7 +4,7 @@
 namespace Cybersai\USSD\Interfaces;
 
 
-interface ViewGroup
+interface ViewGroup extends RequestHolder
 {
-    function getViewForSelection($selection);
+    function getSelectedView();
 }

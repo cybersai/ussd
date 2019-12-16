@@ -9,21 +9,14 @@
  */
 namespace Cybersai\USSD\Interfaces;
 
-use Cybersai\USSD\Requests\USSDRequest;
-
 /**
  * Interface View specifies ussd view interface.
  * It helps to create decorators and other class.
  * It also maintains standards across the application.
  * @package Cybersai\USSD
  */
-interface View
+interface View extends RequestHolder
 {
-    /**
-     * View constructor.
-     * @param USSDRequest $request
-     */
-    function __construct($request);
     function getSectionSeparatorOne();
     function getSectionSeparatorTwo();
     function parseToString();

@@ -25,20 +25,38 @@ class MyView2 extends \Cybersai\USSD\Templates\TemplateView {
         $this->title = 'Isaac Sai';
         $this->content = 'Amazing Grace';
         $this->footer = 'This is the end';
-        $this->next = MyView::class;
+        $this->next = MyViewValidator::class;
+//        $this->next = MyView::class;
         parent::__construct($request);
     }
 }
 
 class MyViewGroup extends \Cybersai\USSD\Templates\TemplateViewGroup {
-        public function __construct()
+        public function __construct($request)
         {
-            $this->views = [new MyView, new MyView2];
+            $this->views = [new MyView($request), new MyView2($request)];
+            parent::__construct($request);
         }
 
-    function getViewForSelection($selection)
+    function getSelectedView()
     {
+        $selection = $this->request->getUserInput();
         return $this->views[$selection - 1];
+    }
+
+}
+
+class MyViewValidator extends \Cybersai\USSD\Templates\TemplateViewValidator {
+        public function __construct($request)
+        {
+            $this->views = [new MyView($request), new MyView2($request)];
+            parent::__construct($request);
+        }
+
+    function getValidView()
+    {
+        $validation = $this->request->getUserInput();
+        return $this->views[$validation - 1];
     }
 
 }
@@ -52,6 +70,7 @@ class MyViewGroup extends \Cybersai\USSD\Templates\TemplateViewGroup {
     $view_id = new MyView($request);
 
     $view_pin = new MyView2($request);
+
     # Create Snapshot and save somewhere
     $snap = $request->snapshotHistory();
     # Display view to user
@@ -62,18 +81,19 @@ class MyViewGroup extends \Cybersai\USSD\Templates\TemplateViewGroup {
     # restore view from snap shot
     $restore = \Cybersai\USSD\Requests\USSDRequest::createFromSnapshot($snap);
     # Create a router
-    $router = new \Cybersai\USSD\Router\USSDRouter($restore, new \Cybersai\USSD\Router\USSDRouterConfig(
-        ['#' => [MyView::class, MyView2::class]],
-        ['0' => 'all'],
-        ['00' => 'all'],
-        ['99' => 'all']));
+    $router = new \Cybersai\USSD\Router\USSDRouter($restore, new \Cybersai\USSD\Router\USSDRouterConfig());
     # Set new UserInput
     $router->acceptUserInput('2');
     # Get next view
-    $outcome = $router->route();
-    # Save snap back to somewhere
-    $snap = $restore->snapshotHistory();
-    #display view to user
-    echo $outcome->parseToString();
-    # END IF
+    try {
+        $outcome = $router->route();
+        # Save snap back to somewhere
+        $snap = $restore->snapshotHistory();
+        #display view to user
+        echo $outcome->parseToString();
+        # END IF
+    } catch (\Cybersai\USSD\Exceptions\ViewNotFound $e) {
+        # Return Invalid input
+    }
+
 ?>

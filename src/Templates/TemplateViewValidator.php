@@ -5,9 +5,10 @@ namespace Cybersai\USSD\Templates;
 
 
 use Cybersai\USSD\Interfaces\ViewGroup;
+use Cybersai\USSD\Interfaces\ViewValidator;
 use Cybersai\USSD\Requests\USSDRequest;
 
-abstract class TemplateViewGroup implements ViewGroup
+abstract class TemplateViewValidator implements ViewValidator
 {
     /** @var ViewGroup[] $views Array of Groups */
     protected $views;

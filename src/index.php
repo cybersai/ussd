@@ -50,17 +50,21 @@ class MyViewGroup extends \Cybersai\USSD\Templates\TemplateViewGroup {
     $request = new \Cybersai\USSD\Requests\USSDRequest('1','+233545112466', 'MTN', '*395#');
     # Default/First View
     $view_id = new MyView($request);
+
+    $view_pin = new MyView2($request);
     # Create Snapshot and save somewhere
     $snap = $request->snapshotHistory();
     # Display view to user
-    echo $view_id->parseToString();
+    echo $view_pin->parseToString();
     echo "\n\n\n\n\n\n\n";
     # ELSE
     # find Snapshot from saved location
     # restore view from snap shot
     $restore = \Cybersai\USSD\Requests\USSDRequest::createFromSnapshot($snap);
     # Create a router
-    $router = new \Cybersai\USSD\Router\USSDRouter($restore);
+    $router = new \Cybersai\USSD\Router\USSDRouter($restore, new \Cybersai\USSD\Router\USSDRouterConfig(['#' => [MyView::class, MyView2::class]]));
+    # Set new UserInput
+    $router->acceptUserInput('#');
     # Get next view
     $outcome = $router->route();
     #display view to user

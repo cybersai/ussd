@@ -56,9 +56,10 @@ class USSDRequest
 
     /**
      * @param TemplateView $object
+     * @param string $user_input
      */
-    public function addHistory($object) {
-        array_push($this->history, $object);
+    public function addHistory($object, $user_input) {
+        array_push($this->history, [$object, $user_input]);
     }
 
     /**
@@ -73,8 +74,22 @@ class USSDRequest
         return $this->payload[$key];
     }
 
-    public function getNextView() {
-        return end($this->history);
+    /**
+     * @return TemplateView
+     */
+    public function getLastView() {
+        return end($this->history)[0];
+    }
+
+    public function processBack() {
+        if (count($this->history) > 1) {
+            array_pop($this->history);
+            $this->setUserInput(end($this->history)[1]);
+        }
+    }
+
+    public function getLastInput() {
+        return end($this->history)[1];
     }
 
     /**

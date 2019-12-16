@@ -39,7 +39,7 @@ abstract class TemplateView implements View
     public function __construct($request)
     {
         $this->request = $request;
-        $request->addHistory($this);
+        $request->addHistory($this, $request->getUserInput());
     }
 
     protected function getBody()

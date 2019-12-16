@@ -19,6 +19,11 @@ use Cybersai\USSD\Requests\USSDRequest;
  */
 interface View
 {
+    /**
+     * View constructor.
+     * @param USSDRequest $request
+     */
+    function __construct($request);
     function getSectionSeparatorOne();
     function getSectionSeparatorTwo();
     function parseToString();

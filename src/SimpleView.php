@@ -9,7 +9,7 @@
  */
 namespace Cybersai\USSD;
 
-use Cybersai\USSD\Modifiers\SimpleSingleView;
+use Cybersai\USSD\Styles\SimpleSingleView;
 
 /**
  * Class SimpleView help to create a simple ussd view.

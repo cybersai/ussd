@@ -7,7 +7,10 @@
  * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
-namespace Cybersai\USSD;
+namespace Cybersai\USSD\Templates;
+
+use Cybersai\USSD\Interfaces\ListView;
+use Cybersai\USSD\Utils\ViewUtil;
 
 /**
  * Abstract Class TemplateListView define pattern to be followed by child classes.
@@ -26,16 +29,6 @@ abstract class TemplateListView extends TemplateView implements ListView
     protected $sub_title = '';
     /** @var string $sub_footer Sub Footer of USSD menu */
     protected $sub_footer = '';
-
-    protected function getSubTitle()
-    {
-        return $this->sub_title;
-    }
-
-    protected function getSubFooter()
-    {
-        return $this->sub_footer;
-    }
 
     public final function parseListToString()
     {

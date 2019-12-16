@@ -7,7 +7,7 @@
  * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
-namespace Cybersai\USSD;
+namespace Cybersai\USSD\Utils;
 
 /**
  * Class ViewUtil helps to with common functions.

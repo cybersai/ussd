@@ -7,7 +7,7 @@
  * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
-namespace Cybersai\USSD;
+namespace Cybersai\USSD\Interfaces;
 
 /**
  * Interface View specifies ussd view interface.

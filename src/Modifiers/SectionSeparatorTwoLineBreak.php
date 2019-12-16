@@ -4,7 +4,7 @@
 namespace Cybersai\USSD\Modifiers;
 
 
-use Cybersai\USSD\Separator;
+use Cybersai\USSD\Constants\Separator;
 
 trait SectionSeparatorTwoLineBreak
 {

@@ -7,7 +7,9 @@
  * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
-namespace Cybersai\USSD;
+namespace Cybersai\USSD\Templates;
+
+use Cybersai\USSD\Interfaces\View;
 
 /**
  * Abstract Class TemplateView define pattern to be followed by child classes.

@@ -7,7 +7,7 @@
  * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
-namespace Cybersai\USSD;
+namespace Cybersai\USSD\Constants;
 
 /**
  * Class Separator help to define spaces between various components.

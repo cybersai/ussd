@@ -1,9 +1,9 @@
 <?php
     require_once '../vendor/autoload.php';
-    class MyView extends \Cybersai\USSD\TemplateListView {
-        use \Cybersai\USSD\Styles\NormalTitleWithFooterView, \Cybersai\USSD\Styles\AlphabeticLowerCaseNumbering,
-            \Cybersai\USSD\Styles\LineBreakListView, \Cybersai\USSD\Styles\NormalSubTitleWithSubFooterListView,
-            \Cybersai\USSD\Modifiers\NumberingSeparatorDot, \Cybersai\USSD\Styles\StringArrayList;
+    class MyView extends \Cybersai\USSD\Templates\TemplateListView {
+        use \Cybersai\USSD\Styles\NormalTitleWithFooterView, \Cybersai\USSD\Modifiers\RomanNumericLowerCaseNumbering,
+            \Cybersai\USSD\Modifiers\ListSeparatorLineBreak, \Cybersai\USSD\Styles\CompactSubTitleWithSubFooterListView,
+            \Cybersai\USSD\Modifiers\NumberingSeparatorBracketPlusSpace, \Cybersai\USSD\Modifiers\StringArrayList;
         public function __construct()
         {
             $this->title = 'Isaac Sai';

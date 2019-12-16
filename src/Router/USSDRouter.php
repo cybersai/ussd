@@ -42,20 +42,20 @@ class USSDRouter
      */
     public function route()
     {
-        // TODO: Make route accept ViewGroup and ViewValidator
         $view = $this->request->getLastView();
         $view = $this->validateView($view);
         $next_view_name = $view->getNext();
         $object = new $next_view_name($this->request);
-        if ($object instanceof TemplateView) {
-            return $object;
-        } else if ($object instanceof TemplateViewGroup) {
-            return $object->getSelectedView();
-        } else if ($object instanceof TemplateViewValidator) {
-            return $object->getValidView();
-        } else {
-            throw new ViewNotFound();
+        while (!$object instanceof TemplateView) {
+            if ($object instanceof TemplateViewGroup) {
+                $object = $object->getSelectedView();
+            } else if ($object instanceof TemplateViewValidator) {
+                $object = $object->getValidView();
+            } else {
+                throw new ViewNotFound();
+            }
         }
+        return $object;
     }
 
     /**

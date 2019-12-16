@@ -4,7 +4,7 @@
         use \Cybersai\USSD\Styles\NormalTitleWithFooterView, \Cybersai\USSD\Modifiers\RomanNumericLowerCaseNumbering,
             \Cybersai\USSD\Modifiers\ListSeparatorLineBreak, \Cybersai\USSD\Styles\CompactSubTitleWithSubFooterListView,
             \Cybersai\USSD\Modifiers\NumberingSeparatorBracketPlusSpace, \Cybersai\USSD\Modifiers\StringArrayList;
-        public function __construct()
+        public function __construct($request)
         {
             $this->title = 'Isaac Sai';
             $this->content = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'];
@@ -14,17 +14,19 @@
             $this->sub_footer = 'Benjamin Perch';
             $this->footer = 'This is the end';
             $this->next = MyView2::class;
+            parent::__construct($request);
         }
     }
 
 class MyView2 extends \Cybersai\USSD\Templates\TemplateView {
     use \Cybersai\USSD\Styles\NormalTitleWithFooterView;
-    public function __construct()
+    public function __construct($request)
     {
         $this->title = 'Isaac Sai';
         $this->content = 'Amazing Grace';
         $this->footer = 'This is the end';
         $this->next = MyView::class;
+        parent::__construct($request);
     }
 }
 
@@ -40,27 +42,28 @@ class MyViewGroup extends \Cybersai\USSD\Templates\TemplateViewGroup {
     }
 
 }
-    $view = new MyView;
-    $view2 = new MyView2;
-    $view_group = new MyViewGroup;
 ?>
-<pre style="margin-left: 20px; border: 1px solid black">
-    <code>
-<?=$view->parseToString()?>
-<?="\n"?>
-<?=$view->getNext()?>
-    </code>
-</pre>
-
-<pre><?=$view_group->getViewForSelection(2)->parseToString()?></pre>
 
 <?php
-    $request = new \Cybersai\USSD\Requests\USSDRequest();
-    $request->incrementPageNumber();
-    echo $request->getPage()."\n";
+    # IF
+    # create new request if sesssion id not found
+    $request = new \Cybersai\USSD\Requests\USSDRequest('1','+233545112466', 'MTN', '*395#');
+    # Default/First View
+    $view_id = new MyView($request);
+    # Create Snapshot and save somewhere
     $snap = $request->snapshotHistory();
+    # Display view to user
+    echo $view_id->parseToString();
+    echo "\n\n\n\n\n\n\n";
+    # ELSE
+    # find Snapshot from saved location
+    # restore view from snap shot
     $restore = \Cybersai\USSD\Requests\USSDRequest::createFromSnapshot($snap);
-    echo $restore->getPage()."\n";
-    $restore->incrementPageNumber();
-    echo $restore->getPage()."\n";
+    # Create a router
+    $router = new \Cybersai\USSD\Router\USSDRouter($restore);
+    # Get next view
+    $outcome = $router->route();
+    #display view to user
+    echo $outcome->parseToString();
+    # END IF
 ?>

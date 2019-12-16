@@ -9,6 +9,8 @@
  */
 namespace Cybersai\USSD\Interfaces;
 
+use Cybersai\USSD\Requests\USSDRequest;
+
 /**
  * Interface View specifies ussd view interface.
  * It helps to create decorators and other class.

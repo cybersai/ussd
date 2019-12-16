@@ -36,16 +36,6 @@ class SimpleListView extends TemplateListView
         $this->next = $next;
     }
 
-    function getListSeparator()
-    {
-        return Separator::LINE_BREAK;
-    }
-
-    function getNumberingSeparator()
-    {
-        return Separator::DOT_PLUS_SPACE;
-    }
-
     function getNumberingForIndex($index)
     {
         return $index + 1;
@@ -63,7 +53,14 @@ class SimpleListView extends TemplateListView
 
     function getSubFooter()
     {
-        return "";
+        $msg = "";
+        if (!ViewUtil::isLastPage($this->page, $this->number_per_page, $this->list)) {
+            $msg .= "00{$this->getNumberingSeparator()}Next Page\n";
+        }
+        if (!ViewUtil::isFirstPage($this->page)) {
+            $msg .= "*{$this->getNumberingSeparator()}Previous Page\n";
+        }
+        return $msg;
     }
 
     protected function getSubTitle()
@@ -91,15 +88,5 @@ class SimpleListView extends TemplateListView
             $msg .= "*{$this->getNumberingSeparator()}Previous Page\n";
         }
         return $msg;
-    }
-
-    function getSectionSeparatorOne()
-    {
-        return "\n";
-    }
-
-    function getSectionSeparatorTwo()
-    {
-        return "\n";
     }
 }

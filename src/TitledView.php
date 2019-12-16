@@ -19,17 +19,20 @@ abstract class TitledView extends TemplateView
 {
     /** @var string $title Title of the USSD menu */
     protected $title;
+    protected $footer;
 
     /**
      * TitledView constructor.
+     * @param string $next
      * @param string $title
      * @param string $content
-     * @param string $next
+     * @param string $footer
      */
-    public function __construct($title, $content, $next)
+    public function __construct($next, $title, $content, $footer = '')
     {
         $this->title = $title;
         $this->content = $content;
+        $this->footer = $footer;
         $this->next = $next;
     }
 
@@ -45,7 +48,7 @@ abstract class TitledView extends TemplateView
 
     protected function getFooter()
     {
-        return "";
+        return $this->footer;
     }
 
     protected function getBody()

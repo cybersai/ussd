@@ -1,7 +1,7 @@
 <?php
     require_once '../vendor/autoload.php';
     $view = new \Cybersai\USSD\SimpleView('Hello World Is the main event','Ghana');
-    class MyView extends \Cybersai\USSD\TitledWithFooterView {
+    class MyView extends \Cybersai\USSD\TitledView {
         use \Cybersai\USSD\Styles\NormalTitledWithFooterView;
         public function __construct()
         {
@@ -9,7 +9,7 @@
             $content = 'This is amazing right';
             $footer = 'This is the end';
             $next = 'Togo';
-            parent::__construct($title, $content,$footer, $next);
+            parent::__construct($next, $title, $content,$footer);
         }
     }
     $view = new MyView;

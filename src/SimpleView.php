@@ -9,6 +9,8 @@
  */
 namespace Cybersai\USSD;
 
+use Cybersai\USSD\Modifiers\SimpleSingleView;
+
 /**
  * Class SimpleView help to create a simple ussd view.
  * It inherits from the abstract TemplateView Class and generates
@@ -17,6 +19,7 @@ namespace Cybersai\USSD;
  */
 class SimpleView extends TemplateView
 {
+    use SimpleSingleView;
 
     /**
      * SimpleView constructor.
@@ -39,29 +42,11 @@ class SimpleView extends TemplateView
     }
 
     /**
-     * Implement getSectionSeparatorOne of View.
-     * @return string
-     */
-    public function getSectionSeparatorOne()
-    {
-        return Separator::NO_LINE_BREAK;
-    }
-
-    /**
      * It returns the body of the menu.
      * @return string
      */
     protected function getBody() {
         return $this->content;
-    }
-
-    /**
-     * Implement getSectionSeparatorTwo of View.
-     * @return string
-     */
-    public function getSectionSeparatorTwo()
-    {
-        return Separator::NO_LINE_BREAK;
     }
 
     /**

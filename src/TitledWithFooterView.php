@@ -15,41 +15,26 @@ namespace Cybersai\USSD;
  * a view with just a body without title only.
  * @package Cybersai\USSD
  */
-abstract class TitledView extends TemplateView
+abstract class TitledWithFooterView extends TitledView
 {
-    /** @var string $title Title of the USSD menu */
-    protected $title;
+    /** @var string $footer Footer of the USSD menu */
+    protected $footer;
 
     /**
      * TitledView constructor.
      * @param string $title
      * @param string $content
+     * @param string $footer
      * @param string $next
      */
-    public function __construct($title, $content, $next)
+    public function __construct($title, $content, $footer, $next)
     {
-        $this->title = $title;
-        $this->content = $content;
-        $this->next = $next;
-    }
-
-
-    /**
-     * Override the getTitle of SimpleView.
-     * @return string
-     */
-    protected function getTitle()
-    {
-        return $this->title;
+        $this->footer = $footer;
+        parent::__construct($title, $content, $next);
     }
 
     protected function getFooter()
     {
-        return "";
-    }
-
-    protected function getBody()
-    {
-        return $this->content;
+        return $this->footer;
     }
 }

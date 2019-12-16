@@ -38,12 +38,12 @@ class SimpleListView extends TemplateListView
 
     function getListSeparator()
     {
-        return "\n";
+        return Separator::LINE_BREAK;
     }
 
     function getNumberingSeparator()
     {
-        return ". ";
+        return Separator::DOT_PLUS_SPACE;
     }
 
     function getNumberingForIndex($index)
@@ -58,7 +58,7 @@ class SimpleListView extends TemplateListView
 
     function getSubFooterSeparator()
     {
-        return "\n";
+        return Separator::NO_LINE_BREAK;
     }
 
     function getSubFooter()
@@ -73,7 +73,7 @@ class SimpleListView extends TemplateListView
 
     public function getSubTitleSeparator()
     {
-        return "";
+        return Separator::NO_LINE_BREAK;
     }
 
     protected function getTitle()
@@ -84,11 +84,11 @@ class SimpleListView extends TemplateListView
     protected function getFooter()
     {
         $msg = "";
-        if (ViewUtil::isFirstPage($this->page)) {
-            $msg .= "00. Next Page\n";
+        if (!ViewUtil::isLastPage($this->page, $this->number_per_page, $this->list)) {
+            $msg .= "00{$this->getNumberingSeparator()}Next Page\n";
         }
-        if (ViewUtil::isLastPage($this->page, $this->number_per_page, $this->list)) {
-            $msg .= "*. Previous Page\n";
+        if (!ViewUtil::isFirstPage($this->page)) {
+            $msg .= "*{$this->getNumberingSeparator()}Previous Page\n";
         }
         return $msg;
     }

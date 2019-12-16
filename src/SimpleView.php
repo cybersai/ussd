@@ -44,7 +44,7 @@ class SimpleView extends TemplateView
      */
     public function getSectionSeparatorOne()
     {
-        return "";
+        return Separator::NO_LINE_BREAK;
     }
 
     /**
@@ -61,7 +61,7 @@ class SimpleView extends TemplateView
      */
     public function getSectionSeparatorTwo()
     {
-        return "";
+        return Separator::NO_LINE_BREAK;
     }
 
     /**

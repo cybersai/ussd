@@ -13,7 +13,7 @@
             $this->sub_title = 'Jum Bernard';
             $this->sub_footer = 'Benjamin Perch';
             $this->footer = 'This is the end';
-            $this->next = 'Togo';
+            $this->next = MyView2::class;
         }
     }
 
@@ -24,7 +24,7 @@ class MyView2 extends \Cybersai\USSD\Templates\TemplateView {
         $this->title = 'Isaac Sai';
         $this->content = 'Amazing Grace';
         $this->footer = 'This is the end';
-        $this->next = 'Togo';
+        $this->next = MyView::class;
     }
 }
 
@@ -53,3 +53,14 @@ class MyViewGroup extends \Cybersai\USSD\Templates\TemplateViewGroup {
 </pre>
 
 <pre><?=$view_group->getViewForSelection(2)->parseToString()?></pre>
+
+<?php
+    $request = new \Cybersai\USSD\Requests\USSDRequest();
+    $request->incrementPageNumber();
+    echo $request->getPage()."\n";
+    $snap = $request->snapshotHistory();
+    $restore = \Cybersai\USSD\Requests\USSDRequest::createFromSnapshot($snap);
+    echo $restore->getPage()."\n";
+    $restore->incrementPageNumber();
+    echo $restore->getPage()."\n";
+?>

@@ -19,9 +19,9 @@ namespace Cybersai\USSD;
 abstract class TemplateListView extends TemplateView implements ListView
 {
     /** @var int $page Current Page Number */
-    protected $page;
+    protected $page = 1;
     /** @var int $number_per_page Total Number of Pages */
-    protected $number_per_page;
+    protected $number_per_page = 5;
     /** @var string $sub_title Sub Title of USSD menu */
     protected $sub_title = '';
     /** @var string $sub_footer Sub Footer of USSD menu */
@@ -43,7 +43,11 @@ abstract class TemplateListView extends TemplateView implements ListView
         $start_index = ViewUtil::getListStartIndex($this->page, $this->number_per_page);
         $limit = ViewUtil::getListEndLimit($this->page, $this->number_per_page, $this->content);
         for($i = 0;$i < $limit;$i++) {
-            $msg .= "{$this->getNumberingForIndex($i + $start_index)}{$this->getNumberingSeparator()}{$this->getListItemForIndex($i + $start_index)}{$this->getListSeparator()}";
+            if ($i == $limit - 1) {
+                $msg .= "{$this->getNumberingForIndex($i + $start_index)}{$this->getNumberingSeparator()}{$this->getListItemForIndex($i + $start_index)}";
+            } else {
+                $msg .= "{$this->getNumberingForIndex($i + $start_index)}{$this->getNumberingSeparator()}{$this->getListItemForIndex($i + $start_index)}{$this->getListSeparator()}";
+            }
         }
         return $msg;
     }

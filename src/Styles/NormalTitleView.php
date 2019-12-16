@@ -7,7 +7,7 @@ namespace Cybersai\USSD\Styles;
 use Cybersai\USSD\Modifiers\SectionSeparatorOneDoubleLineBreak;
 use Cybersai\USSD\Modifiers\SectionSeparatorTwoNoLineBreak;
 
-trait NormalTitledView
+trait NormalTitleView
 {
     use SectionSeparatorOneDoubleLineBreak, SectionSeparatorTwoNoLineBreak;
 }

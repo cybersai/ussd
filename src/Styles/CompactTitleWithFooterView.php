@@ -7,7 +7,7 @@ namespace Cybersai\USSD\Styles;
 use Cybersai\USSD\Modifiers\SectionSeparatorOneLineBreak;
 use Cybersai\USSD\Modifiers\SectionSeparatorTwoLineBreak;
 
-trait CompactTitledWithFooterView
+trait CompactTitleWithFooterView
 {
     use SectionSeparatorOneLineBreak, SectionSeparatorTwoLineBreak;
 }

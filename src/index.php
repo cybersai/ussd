@@ -8,7 +8,7 @@
         {
             $this->title = 'Isaac Sai';
             $this->content = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'];
-            $this->page = 1;
+            $this->page = $request->getPage();
             $this->number_per_page = 3;
             $this->sub_title = 'Jum Bernard';
             $this->sub_footer = 'Benjamin Perch';
@@ -62,9 +62,13 @@ class MyViewGroup extends \Cybersai\USSD\Templates\TemplateViewGroup {
     # restore view from snap shot
     $restore = \Cybersai\USSD\Requests\USSDRequest::createFromSnapshot($snap);
     # Create a router
-    $router = new \Cybersai\USSD\Router\USSDRouter($restore, new \Cybersai\USSD\Router\USSDRouterConfig(['#' => [MyView::class, MyView2::class]]));
+    $router = new \Cybersai\USSD\Router\USSDRouter($restore, new \Cybersai\USSD\Router\USSDRouterConfig(
+        ['#' => [MyView::class, MyView2::class]],
+        ['0' => 'all'],
+        ['00' => 'all'],
+        ['99' => 'all']));
     # Set new UserInput
-    $router->acceptUserInput('#');
+    $router->acceptUserInput('00');
     # Get next view
     $outcome = $router->route();
     #display view to user

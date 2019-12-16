@@ -13,8 +13,6 @@ class USSDRouter
     private $request;
     /** @var USSDRouterConfig $config */
     private $config;
-    /** @var string $next_input */
-    private $next_input = null;
 
     /**
      * USSDRouter constructor.
@@ -28,11 +26,11 @@ class USSDRouter
     }
 
     public function acceptUserInput($user_input) {
-        $this->next_input = $user_input;
+        $this->request->setUserInput($user_input);
     }
 
     public function getNextInput() {
-        return $this->next_input;
+        return $this->request->getUserInput();
     }
 
     public function route()
@@ -48,9 +46,22 @@ class USSDRouter
      * @return TemplateView
      */
     private function validateView($view) {
-        if ($this->config->goBackEnabledFor($view, $this->next_input)) {
+        if ($this->config->goBackEnabledFor($view, $this->request->getUserInput())) {
             $this->request->processBack();
             return $this->request->getLastView();
+        } else if ($this->config->goToBeginningEnabledFor($view, $this->request->getUserInput())) {
+            $this->request->processBeginning();
+            return $this->request->getLastView();
+        } else if ($this->config->goToListNextPageEnabledFor($view, $this->request->getUserInput())) {
+            $this->request->processNext();
+            return $this->request->getLastView();
+        } else if ($this->config->goToListPreviousPageEnabledFor($view, $this->request->getUserInput())) {
+            $this->request->processPrevious();
+            return $this->request->getLastView();
+        } else {
+            if ($this->request->getPage() !== 1) {
+                $this->request->resetPageNumber();
+            }
         }
         return $view;
     }

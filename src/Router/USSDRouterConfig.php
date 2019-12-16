@@ -30,14 +30,14 @@ class USSDRouterConfig
             $go_back);
         $this->setConfig($this->go_to_beginning_enabled, $this->go_to_beginning,
             $this->go_to_beginning_key, $go_to_beginning);
-        $this->setConfig($this->go_to_list_next_page_enabled, $this->go_to_list_next_page_key,
+        $this->setConfig($this->go_to_list_next_page_enabled, $this->go_to_list_next_page,
             $this->go_to_list_next_page_key, $go_to_list_next_page);
         $this->setConfig($this->go_to_list_previous_page_enabled, $this->go_to_list_previous_page,
             $this->go_to_list_previous_page_key, $go_to_list_previous_page);
     }
 
     private function setConfig(&$bool_key, &$storage_value, &$storage_key, $value) {
-        if ($value == null) {
+        if ($value === null) {
             $bool_key = false;
         } else {
             $bool_key = true;
@@ -45,7 +45,7 @@ class USSDRouterConfig
                 $storage_key = $value;
             } else if (is_array($value)) {
                 $keys = array_keys($value);
-                $storage_key = $keys[0];
+                $storage_key = strval($keys[0]);
                 $storage_value = $value[$storage_key];
             } else {
                 $bool_key = false;
@@ -54,7 +54,7 @@ class USSDRouterConfig
     }
 
     private function enabledFor($bool_key, $storage_key, $storage_value, $view, $input) {
-        if ($bool_key == true && $storage_key == $input) {
+        if ($bool_key == true && $storage_key === $input) {
             if (is_string($storage_value)) {
                 if ($storage_value == self::ALL) {
                     return true;

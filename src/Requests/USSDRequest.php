@@ -39,6 +39,10 @@ class USSDRequest
         $this->page = $this->page - 1;
     }
 
+    public function resetPageNumber() {
+        $this->page = 1;
+    }
+
     /**
      * @return string
      */
@@ -84,8 +88,25 @@ class USSDRequest
     public function processBack() {
         if (count($this->history) > 1) {
             array_pop($this->history);
-            $this->setUserInput(end($this->history)[1]);
+            $this->setUserInput($this->getLastInput());
         }
+    }
+
+    public function processBeginning() {
+        if (count($this->history) > 1) {
+            $this->history = array_slice($this->history, 0, 1);
+            $this->setUserInput($this->getLastInput());
+        }
+    }
+
+    public function processNext() {
+        $this->setUserInput($this->getLastInput());
+        $this->incrementPageNumber();
+    }
+
+    public function processPrevious() {
+        $this->setUserInput($this->getLastInput());
+        $this->decrementPageNumber();
     }
 
     public function getLastInput() {

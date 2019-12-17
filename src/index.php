@@ -65,7 +65,11 @@ class MyViewValidator extends \Cybersai\USSD\Templates\TemplateViewValidator {
 <?php
     # IF
     # create new request if sesssion id not found
-    $request = new \Cybersai\USSD\Requests\USSDRequest('1','+233545112466', 'MTN', '*395#');
+    $request =  new \Cybersai\USSD\Adapters\KorbaRequestAdapter([\Cybersai\USSD\Constants\Korba::session_id => '1',
+        \Cybersai\USSD\Constants\Korba::MSISDN => '233545112466',
+        \Cybersai\USSD\Constants\Korba::network => 'MTN',
+        \Cybersai\USSD\Constants\Korba::user_input => '*395']);
+//    $request = new \Cybersai\USSD\Requests\USSDRequest('1','+233545112466', 'MTN', '*395#');
     # Default/First View
     $view_id = new MyView($request);
 
@@ -79,7 +83,8 @@ class MyViewValidator extends \Cybersai\USSD\Templates\TemplateViewValidator {
     # ELSE
     # find Snapshot from saved location
     # restore view from snap shot
-    $restore = \Cybersai\USSD\Requests\USSDRequest::createFromSnapshot($snap);
+    $restore = \Cybersai\USSD\Adapters\KorbaRequestAdapter::createFromSnapshot($snap);
+//    $restore = \Cybersai\USSD\Requests\USSDRequest::createFromSnapshot($snap);
     # Create a router
     $router = new \Cybersai\USSD\Router\USSDRouter($restore, new \Cybersai\USSD\Router\USSDRouterConfig());
     # Set new UserInput
@@ -90,7 +95,8 @@ class MyViewValidator extends \Cybersai\USSD\Templates\TemplateViewValidator {
         # Save snap back to somewhere
         $snap = $restore->snapshotHistory();
         #display view to user
-        echo $outcome->parseToString();
+        $response = $restore->respondToProvider($outcome);
+        print_r($response);
         # END IF
     } catch (\Cybersai\USSD\Exceptions\ViewNotFound $e) {
         # Return Invalid input

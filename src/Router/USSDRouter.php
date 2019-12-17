@@ -4,7 +4,7 @@
 namespace Cybersai\USSD\Router;
 
 
-use Cybersai\USSD\Exceptions\ViewNotFound;
+use Cybersai\USSD\Exceptions\ViewNotFoundException;
 use Cybersai\USSD\Requests\USSDRequest;
 use Cybersai\USSD\Templates\TemplateView;
 use Cybersai\USSD\Templates\TemplateViewGroup;
@@ -38,7 +38,7 @@ class USSDRouter
 
     /**
      * @return TemplateView
-     * @throws ViewNotFound
+     * @throws ViewNotFoundException
      */
     public function route()
     {
@@ -52,7 +52,7 @@ class USSDRouter
             } else if ($object instanceof TemplateViewValidator) {
                 $object = $object->getValidView();
             } else {
-                throw new ViewNotFound();
+                throw new ViewNotFoundException();
             }
         }
         return $object;

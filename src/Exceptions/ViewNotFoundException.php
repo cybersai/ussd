@@ -2,7 +2,6 @@
 
 namespace Cybersai\USSD\Exceptions;
 
-use Throwable;
 
 class ViewNotFoundException extends \Exception
 {

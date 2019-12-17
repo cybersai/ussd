@@ -4,7 +4,6 @@
 namespace Cybersai\USSD\Adapters;
 
 
-use Cybersai\USSD\Constants\Korba;
 use Cybersai\USSD\Constants\Nsano;
 use Cybersai\USSD\Interfaces\ApiRequest;
 use Cybersai\USSD\Requests\USSDRequest;

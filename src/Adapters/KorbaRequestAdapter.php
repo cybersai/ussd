@@ -7,7 +7,6 @@ namespace Cybersai\USSD\Adapters;
 use Cybersai\USSD\Constants\Korba;
 use Cybersai\USSD\Interfaces\ApiRequest;
 use Cybersai\USSD\Requests\USSDRequest;
-use Cybersai\USSD\Templates\TemplateView;
 
 class KorbaRequestAdapter extends USSDRequest implements ApiRequest
 {

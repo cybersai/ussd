@@ -5,7 +5,6 @@ namespace Cybersai\USSD\Adapters;
 
 
 use Cybersai\USSD\Constants\Hubtel;
-use Cybersai\USSD\Constants\Korba;
 use Cybersai\USSD\Interfaces\ApiRequest;
 use Cybersai\USSD\Requests\USSDRequest;
 

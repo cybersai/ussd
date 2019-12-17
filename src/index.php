@@ -1,5 +1,7 @@
 <?php
+
     require_once '../vendor/autoload.php';
+
     class MyView extends \Cybersai\USSD\Templates\TemplateListView {
         use \Cybersai\USSD\Styles\NormalTitleWithFooterView, \Cybersai\USSD\Modifiers\RomanNumericLowerCaseNumbering,
             \Cybersai\USSD\Modifiers\ListSeparatorLineBreak, \Cybersai\USSD\Styles\CompactSubTitleWithSubFooterListView,
@@ -63,30 +65,40 @@ class MyViewValidator extends \Cybersai\USSD\Templates\TemplateViewValidator {
 ?>
 
 <?php
-    # IF
-    # create new request if sesssion id not found
-    $request =  new \Cybersai\USSD\Adapters\KorbaRequestAdapter([\Cybersai\USSD\Constants\Korba::session_id => '1',
-        \Cybersai\USSD\Constants\Korba::MSISDN => '233545112466',
-        \Cybersai\USSD\Constants\Korba::network => 'MTN',
-        \Cybersai\USSD\Constants\Korba::user_input => '*395']);
-//    $request = new \Cybersai\USSD\Requests\USSDRequest('1','+233545112466', 'MTN', '*395#');
-    # Default/First View
+
+    use \Cybersai\USSD\Adapters\KorbaRequestAdapter;
+    use \Cybersai\USSD\Router\USSDRouterConfig;
+    use \Cybersai\USSD\Router\USSDRouter;
+    use \Cybersai\USSD\Constants\Korba;
+    use \Cybersai\USSD\Exceptions\ViewNotFoundException;
+
+    # Create a new request
+    $request = new KorbaRequestAdapter([
+        Korba::session_id => '1',
+        Korba::MSISDN => '233545112466',
+        Korba::network => 'MTN',
+        Korba::user_input => '*395'
+    ]);
+
+    # Show default view
     $view_id = new MyView($request);
 
+    # Show second view
     $view_pin = new MyView2($request);
 
     # Create Snapshot and save somewhere
     $snap = $request->snapshotHistory();
+
     # Display view to user
     echo $view_pin->parseToString();
     echo "\n\n\n\n\n\n\n";
     # ELSE
     # find Snapshot from saved location
     # restore view from snap shot
-    $restore = \Cybersai\USSD\Adapters\KorbaRequestAdapter::createFromSnapshot($snap);
-//    $restore = \Cybersai\USSD\Requests\USSDRequest::createFromSnapshot($snap);
+    $restore = KorbaRequestAdapter::createFromSnapshot($snap);
+//    $restore = USSDRequest::createFromSnapshot($snap);
     # Create a router
-    $router = new \Cybersai\USSD\Router\USSDRouter($restore, new \Cybersai\USSD\Router\USSDRouterConfig());
+    $router = new USSDRouter($restore, new USSDRouterConfig());
     # Set new UserInput
     $router->acceptUserInput('2');
     # Get next view
@@ -98,7 +110,7 @@ class MyViewValidator extends \Cybersai\USSD\Templates\TemplateViewValidator {
         $response = $restore->respondToProvider($outcome);
         print_r($response);
         # END IF
-    } catch (\Cybersai\USSD\Exceptions\ViewNotFound $e) {
+    } catch (ViewNotFoundException $e) {
         # Return Invalid input
     }
 

@@ -1,12 +1,10 @@
 <?php
 
-
 namespace Cybersai\USSD\Exceptions;
-
 
 use Throwable;
 
-class ViewNotFound extends \Exception
+class ViewNotFoundException extends \Exception
 {
     public function __construct()
     {

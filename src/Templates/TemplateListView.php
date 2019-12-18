@@ -7,17 +7,17 @@
  * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
-namespace Cybersai\USSD\Templates;
+namespace Cybersai\Ussd\Templates;
 
-use Cybersai\USSD\Interfaces\ListView;
-use Cybersai\USSD\Utils\ViewUtil;
+use Cybersai\Ussd\Interfaces\ListView;
+use Cybersai\Ussd\Utils\ViewUtil;
 
 /**
  * Abstract Class TemplateListView define pattern to be followed by child classes.
  * This class is an abstract class.
  * It uses the Template Method Design pattern
  * to generate the necessary view for the USSD.
- * @package Cybersai\USSD
+ * @package Cybersai\Ussd
  */
 abstract class TemplateListView extends TemplateView implements ListView
 {

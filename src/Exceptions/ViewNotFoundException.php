@@ -1,6 +1,6 @@
 <?php
 
-namespace Cybersai\USSD\Exceptions;
+namespace Cybersai\Ussd\Exceptions;
 
 
 class ViewNotFoundException extends \Exception

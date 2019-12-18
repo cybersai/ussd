@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Cybersai\USSD\Adapters;
+namespace Cybersai\Ussd\Adapters;
 
 
-use Cybersai\USSD\Constants\Korba;
-use Cybersai\USSD\Interfaces\ApiRequest;
-use Cybersai\USSD\Requests\UssdRequest;
+use Cybersai\Ussd\Constants\Korba;
+use Cybersai\Ussd\Interfaces\ApiRequest;
+use Cybersai\Ussd\Requests\UssdRequest;
 
 class KorbaRequestAdapter extends UssdRequest implements ApiRequest
 {

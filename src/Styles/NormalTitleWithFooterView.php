@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Cybersai\USSD\Styles;
+namespace Cybersai\Ussd\Styles;
 
 
-use Cybersai\USSD\Modifiers\SectionSeparatorOneDoubleLineBreak;
-use Cybersai\USSD\Modifiers\SectionSeparatorTwoDoubleLineBreak;
+use Cybersai\Ussd\Modifiers\SectionSeparatorOneDoubleLineBreak;
+use Cybersai\Ussd\Modifiers\SectionSeparatorTwoDoubleLineBreak;
 
 trait NormalTitleWithFooterView
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Cybersai\USSD\Constants;
+namespace Cybersai\Ussd\Constants;
 
 
 final class TxtGhana

@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Cybersai\USSD\Router;
+namespace Cybersai\Ussd\Router;
 
 
-use Cybersai\USSD\Exceptions\ViewNotFoundException;
-use Cybersai\USSD\Requests\UssdRequest;
-use Cybersai\USSD\Templates\TemplateView;
-use Cybersai\USSD\Templates\TemplateViewGroup;
-use Cybersai\USSD\Templates\TemplateViewValidator;
+use Cybersai\Ussd\Exceptions\ViewNotFoundException;
+use Cybersai\Ussd\Requests\UssdRequest;
+use Cybersai\Ussd\Templates\TemplateView;
+use Cybersai\Ussd\Templates\TemplateViewGroup;
+use Cybersai\Ussd\Templates\TemplateViewValidator;
 
 class UssdRouter
 {

@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Cybersai\USSD\Styles;
+namespace Cybersai\Ussd\Styles;
 
 
-use Cybersai\USSD\Modifiers\SubFooterSeparatorDoubleLineBreak;
-use Cybersai\USSD\Modifiers\SubTitleSeparatorDoubleLineBreak;
+use Cybersai\Ussd\Modifiers\SubFooterSeparatorDoubleLineBreak;
+use Cybersai\Ussd\Modifiers\SubTitleSeparatorDoubleLineBreak;
 
 trait NormalSubTitleWithSubFooterListView
 {

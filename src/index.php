@@ -2,16 +2,16 @@
 
 require_once '../vendor/autoload.php';
 
-use Cybersai\USSD\Templates\TemplateListView;
-use Cybersai\USSD\Templates\TemplateView;
-use Cybersai\USSD\Templates\TemplateViewGroup;
-use Cybersai\USSD\Templates\TemplateViewValidator;
-use Cybersai\USSD\Styles\NormalTitleWithFooterView;
-use Cybersai\USSD\Styles\CompactSubTitleWithSubFooterListView;
-use Cybersai\USSD\Modifiers\RomanNumericLowerCaseNumbering;
-use Cybersai\USSD\Modifiers\ListSeparatorLineBreak;
-use Cybersai\USSD\Modifiers\NumberingSeparatorBracketPlusSpace;
-use Cybersai\USSD\Modifiers\StringArrayList;
+use Cybersai\Ussd\Templates\TemplateListView;
+use Cybersai\Ussd\Templates\TemplateView;
+use Cybersai\Ussd\Templates\TemplateViewGroup;
+use Cybersai\Ussd\Templates\TemplateViewValidator;
+use Cybersai\Ussd\Styles\NormalTitleWithFooterView;
+use Cybersai\Ussd\Styles\CompactSubTitleWithSubFooterListView;
+use Cybersai\Ussd\Modifiers\RomanNumericLowerCaseNumbering;
+use Cybersai\Ussd\Modifiers\ListSeparatorLineBreak;
+use Cybersai\Ussd\Modifiers\NumberingSeparatorBracketPlusSpace;
+use Cybersai\Ussd\Modifiers\StringArrayList;
 
 class FirstView extends TemplateListView
 {
@@ -86,11 +86,11 @@ class ViewGroup extends TemplateViewGroup
 
 <?php
 
-    use Cybersai\USSD\Exceptions\ViewNotFoundException;
-    use Cybersai\USSD\Adapters\KorbaRequestAdapter;
-    use Cybersai\USSD\Router\UssdRouterConfig;
-    use Cybersai\USSD\Router\UssdRouter;
-    use Cybersai\USSD\Constants\Korba;
+    use Cybersai\Ussd\Exceptions\ViewNotFoundException;
+    use Cybersai\Ussd\Adapters\KorbaRequestAdapter;
+    use Cybersai\Ussd\Router\UssdRouterConfig;
+    use Cybersai\Ussd\Router\UssdRouter;
+    use Cybersai\Ussd\Constants\Korba;
     
     # Create new request
     $request = new KorbaRequestAdapter([

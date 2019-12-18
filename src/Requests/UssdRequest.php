@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Cybersai\USSD\Requests;
+namespace Cybersai\Ussd\Requests;
 
 
-use Cybersai\USSD\Templates\TemplateView;
+use Cybersai\Ussd\Templates\TemplateView;
 
 class UssdRequest
 {

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Cybersai\USSD\Interfaces;
+namespace Cybersai\Ussd\Interfaces;
 
 
-use Cybersai\USSD\Templates\TemplateView;
+use Cybersai\Ussd\Templates\TemplateView;
 
 interface ApiRequest
 {

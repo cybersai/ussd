@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Cybersai\USSD\Interfaces;
+namespace Cybersai\Ussd\Interfaces;
 
 
-use Cybersai\USSD\Requests\UssdRequest;
+use Cybersai\Ussd\Requests\UssdRequest;
 
 interface RequestHolder
 {

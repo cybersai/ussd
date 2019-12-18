@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Cybersai\USSD\Router;
+namespace Cybersai\Ussd\Router;
 
 
-use Cybersai\USSD\Templates\TemplateView;
+use Cybersai\Ussd\Templates\TemplateView;
 
 class UssdRouterConfig
 {

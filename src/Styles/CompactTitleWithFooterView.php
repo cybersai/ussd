@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Cybersai\USSD\Styles;
+namespace Cybersai\Ussd\Styles;
 
 
-use Cybersai\USSD\Modifiers\SectionSeparatorOneLineBreak;
-use Cybersai\USSD\Modifiers\SectionSeparatorTwoLineBreak;
+use Cybersai\Ussd\Modifiers\SectionSeparatorOneLineBreak;
+use Cybersai\Ussd\Modifiers\SectionSeparatorTwoLineBreak;
 
 trait CompactTitleWithFooterView
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Cybersai\USSD\Interfaces;
+namespace Cybersai\Ussd\Interfaces;
 
 
 interface ViewValidator extends RequestHolder

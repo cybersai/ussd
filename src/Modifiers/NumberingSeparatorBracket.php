@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Cybersai\USSD\Modifiers;
+namespace Cybersai\Ussd\Modifiers;
 
 
-use Cybersai\USSD\Constants\Separator;
+use Cybersai\Ussd\Constants\Separator;
 
 trait NumberingSeparatorBracket
 {

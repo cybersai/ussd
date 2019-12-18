@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Cybersai\USSD\Templates;
+namespace Cybersai\Ussd\Templates;
 
 
-use Cybersai\USSD\Interfaces\ViewGroup;
-use Cybersai\USSD\Interfaces\ViewValidator;
-use Cybersai\USSD\Requests\UssdRequest;
+use Cybersai\Ussd\Interfaces\ViewGroup;
+use Cybersai\Ussd\Interfaces\ViewValidator;
+use Cybersai\Ussd\Requests\UssdRequest;
 
 abstract class TemplateViewValidator implements ViewValidator
 {

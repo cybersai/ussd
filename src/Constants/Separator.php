@@ -7,13 +7,13 @@
  * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
-namespace Cybersai\USSD\Constants;
+namespace Cybersai\Ussd\Constants;
 
 /**
  * Class Separator help to define spaces between various components.
  * It a final class that prevents inheritance. It provides common
  * separator methods.
- * @package Cybersai\USSD
+ * @package Cybersai\Ussd
  */
 final class Separator
 {

@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Cybersai\USSD\Utils;
+namespace Cybersai\Ussd\Utils;
 
 
-use Cybersai\USSD\Constants\Hubtel;
-use Cybersai\USSD\Constants\Korba;
-use Cybersai\USSD\Constants\Nsano;
-use Cybersai\USSD\Constants\TxtGhana;
+use Cybersai\Ussd\Constants\Hubtel;
+use Cybersai\Ussd\Constants\Korba;
+use Cybersai\Ussd\Constants\Nsano;
+use Cybersai\Ussd\Constants\TxtGhana;
 
 final class RouterUtil
 {

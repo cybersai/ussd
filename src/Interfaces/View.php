@@ -7,13 +7,13 @@
  * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
-namespace Cybersai\USSD\Interfaces;
+namespace Cybersai\Ussd\Interfaces;
 
 /**
  * Interface View specifies ussd view interface.
  * It helps to create decorators and other class.
  * It also maintains standards across the application.
- * @package Cybersai\USSD
+ * @package Cybersai\Ussd
  */
 interface View extends RequestHolder
 {

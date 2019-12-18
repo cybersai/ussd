@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Cybersai\USSD\Templates;
+namespace Cybersai\Ussd\Templates;
 
 
-use Cybersai\USSD\Interfaces\ViewGroup;
-use Cybersai\USSD\Requests\UssdRequest;
+use Cybersai\Ussd\Interfaces\ViewGroup;
+use Cybersai\Ussd\Requests\UssdRequest;
 
 abstract class TemplateViewGroup implements ViewGroup
 {

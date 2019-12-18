@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Cybersai\USSD\Styles;
+namespace Cybersai\Ussd\Styles;
 
 
-use Cybersai\USSD\Modifiers\SubFooterSeparatorNoLineBreak;
-use Cybersai\USSD\Modifiers\SubTitleSeparatorNoLineBreak;
+use Cybersai\Ussd\Modifiers\SubFooterSeparatorNoLineBreak;
+use Cybersai\Ussd\Modifiers\SubTitleSeparatorNoLineBreak;
 
 trait NoSubTitleAndSubFooterListView
 {

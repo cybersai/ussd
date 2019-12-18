@@ -1,13 +1,13 @@
 <?php
 
 
-namespace Cybersai\USSD\Adapters;
+namespace Cybersai\Ussd\Adapters;
 
 
-use Cybersai\USSD\Constants\Korba;
-use Cybersai\USSD\Constants\TxtGhana;
-use Cybersai\USSD\Interfaces\ApiRequest;
-use Cybersai\USSD\Requests\UssdRequest;
+use Cybersai\Ussd\Constants\Korba;
+use Cybersai\Ussd\Constants\TxtGhana;
+use Cybersai\Ussd\Interfaces\ApiRequest;
+use Cybersai\Ussd\Requests\UssdRequest;
 
 class TxtGhanaRequestAdapter extends UssdRequest implements ApiRequest
 {

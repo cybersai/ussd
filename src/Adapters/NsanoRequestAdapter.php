@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Cybersai\USSD\Adapters;
+namespace Cybersai\Ussd\Adapters;
 
 
-use Cybersai\USSD\Constants\Nsano;
-use Cybersai\USSD\Interfaces\ApiRequest;
-use Cybersai\USSD\Requests\UssdRequest;
+use Cybersai\Ussd\Constants\Nsano;
+use Cybersai\Ussd\Interfaces\ApiRequest;
+use Cybersai\Ussd\Requests\UssdRequest;
 
 class NsanoRequestAdapter extends UssdRequest implements ApiRequest
 {

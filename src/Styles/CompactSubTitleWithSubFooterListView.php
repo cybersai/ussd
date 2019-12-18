@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Cybersai\USSD\Styles;
+namespace Cybersai\Ussd\Styles;
 
 
-use Cybersai\USSD\Modifiers\SubFooterSeparatorLineBreak;
-use Cybersai\USSD\Modifiers\SubTitleSeparatorLineBreak;
+use Cybersai\Ussd\Modifiers\SubFooterSeparatorLineBreak;
+use Cybersai\Ussd\Modifiers\SubTitleSeparatorLineBreak;
 
 trait CompactSubTitleWithSubFooterListView
 {

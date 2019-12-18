@@ -7,13 +7,13 @@
  * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
-namespace Cybersai\USSD\Utils;
+namespace Cybersai\Ussd\Utils;
 
 /**
  * Class ViewUtil helps to with common functions.
  * It contains constants and commonly used functions
  * in the view class.
- * @package Cybersai\USSD
+ * @package Cybersai\Ussd
  */
 final class ViewUtil
 {

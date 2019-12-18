@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Cybersai\USSD\Modifiers;
+namespace Cybersai\Ussd\Modifiers;
 
 
 trait NumericNumbering

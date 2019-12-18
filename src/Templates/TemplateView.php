@@ -7,25 +7,25 @@
  * @author Isaac Adzah Sai <isaacsai030@gmail.com>
  * @version 1.0.0
  */
-namespace Cybersai\USSD\Templates;
+namespace Cybersai\Ussd\Templates;
 
-use Cybersai\USSD\Interfaces\View;
-use Cybersai\USSD\Requests\UssdRequest;
+use Cybersai\Ussd\Interfaces\View;
+use Cybersai\Ussd\Requests\UssdRequest;
 
 /**
  * Abstract Class TemplateView define pattern to be followed by child classes.
  * This class is an abstract class.
  * It uses the Template Method Design pattern
- * to generate the necessary view for the USSD.
- * @package Cybersai\USSD
+ * to generate the necessary view for the Ussd.
+ * @package Cybersai\Ussd
  */
 abstract class TemplateView implements View
 {
     /** @var string $content Content of the ussd view. */
     protected $content;
-    /** @var string $title Title of the USSD menu */
+    /** @var string $title Title of the Ussd menu */
     protected $title = '';
-    /** @var string $footer Footer of the USSD menu */
+    /** @var string $footer Footer of the Ussd menu */
     protected $footer = '';
     /** @var string $next ClassName of the next ussd view. */
     protected $next;

@@ -5,22 +5,22 @@ namespace Cybersai\USSD\Router;
 
 
 use Cybersai\USSD\Exceptions\ViewNotFoundException;
-use Cybersai\USSD\Requests\USSDRequest;
+use Cybersai\USSD\Requests\UssdRequest;
 use Cybersai\USSD\Templates\TemplateView;
 use Cybersai\USSD\Templates\TemplateViewGroup;
 use Cybersai\USSD\Templates\TemplateViewValidator;
 
-class USSDRouter
+class UssdRouter
 {
-    /** @var USSDRequest $request */
+    /** @var UssdRequest $request */
     private $request;
-    /** @var USSDRouterConfig $config */
+    /** @var UssdRouterConfig $config */
     private $config;
 
     /**
-     * USSDRouter constructor.
-     * @param USSDRequest $request
-     * @param USSDRouterConfig $config
+     * UssdRouter constructor.
+     * @param UssdRequest $request
+     * @param UssdRouterConfig $config
      */
     public function __construct($request, $config)
     {

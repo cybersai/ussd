@@ -4,13 +4,13 @@
 namespace Cybersai\USSD\Interfaces;
 
 
-use Cybersai\USSD\Requests\USSDRequest;
+use Cybersai\USSD\Requests\UssdRequest;
 
 interface RequestHolder
 {
     /**
      * View constructor.
-     * @param USSDRequest $request
+     * @param UssdRequest $request
      */
     function __construct($request);
 }

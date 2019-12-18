@@ -88,8 +88,8 @@ class ViewGroup extends TemplateViewGroup
 
     use Cybersai\USSD\Exceptions\ViewNotFoundException;
     use Cybersai\USSD\Adapters\KorbaRequestAdapter;
-    use Cybersai\USSD\Router\USSDRouterConfig;
-    use Cybersai\USSD\Router\USSDRouter;
+    use Cybersai\USSD\Router\UssdRouterConfig;
+    use Cybersai\USSD\Router\UssdRouter;
     use Cybersai\USSD\Constants\Korba;
     
     # Create new request
@@ -116,7 +116,7 @@ class ViewGroup extends TemplateViewGroup
     $restore = KorbaRequestAdapter::createFromSnapshot($snap);
 
     # Create new router
-    $router = new USSDRouter($restore, new USSDRouterConfig());
+    $router = new UssdRouter($restore, new UssdRouterConfig());
 
     # Set new UserInput
     $router->acceptUserInput('2');

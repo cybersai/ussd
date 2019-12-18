@@ -7,9 +7,9 @@ namespace Cybersai\USSD\Adapters;
 use Cybersai\USSD\Constants\Korba;
 use Cybersai\USSD\Constants\TxtGhana;
 use Cybersai\USSD\Interfaces\ApiRequest;
-use Cybersai\USSD\Requests\USSDRequest;
+use Cybersai\USSD\Requests\UssdRequest;
 
-class TxtGhanaRequestAdapter extends USSDRequest implements ApiRequest
+class TxtGhanaRequestAdapter extends UssdRequest implements ApiRequest
 {
     /**
      * KorbaRequestAdapter constructor.

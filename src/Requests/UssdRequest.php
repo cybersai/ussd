@@ -6,7 +6,7 @@ namespace Cybersai\USSD\Requests;
 
 use Cybersai\USSD\Templates\TemplateView;
 
-class USSDRequest
+class UssdRequest
 {
     protected $session_id;
     protected $user_input;
@@ -17,7 +17,7 @@ class USSDRequest
     protected $payload = [];
 
     /**
-     * USSDRequest constructor.
+     * UssdRequest constructor.
      * @param string $session_id
      * @param string $MSISDN
      * @param string $network
@@ -52,7 +52,7 @@ class USSDRequest
 
     /**
      * @param $snapshot
-     * @return USSDRequest
+     * @return UssdRequest
      */
     public static function createFromSnapshot($snapshot) {
         return unserialize($snapshot);

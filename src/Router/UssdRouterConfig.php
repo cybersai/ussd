@@ -6,7 +6,7 @@ namespace Cybersai\USSD\Router;
 
 use Cybersai\USSD\Templates\TemplateView;
 
-class USSDRouterConfig
+class UssdRouterConfig
 {
     const ALL = 'all';
     const NONE = 'none';

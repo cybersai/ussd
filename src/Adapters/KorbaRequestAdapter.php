@@ -6,9 +6,9 @@ namespace Cybersai\USSD\Adapters;
 
 use Cybersai\USSD\Constants\Korba;
 use Cybersai\USSD\Interfaces\ApiRequest;
-use Cybersai\USSD\Requests\USSDRequest;
+use Cybersai\USSD\Requests\UssdRequest;
 
-class KorbaRequestAdapter extends USSDRequest implements ApiRequest
+class KorbaRequestAdapter extends UssdRequest implements ApiRequest
 {
     /**
      * KorbaRequestAdapter constructor.

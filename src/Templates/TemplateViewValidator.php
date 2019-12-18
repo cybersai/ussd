@@ -6,18 +6,18 @@ namespace Cybersai\USSD\Templates;
 
 use Cybersai\USSD\Interfaces\ViewGroup;
 use Cybersai\USSD\Interfaces\ViewValidator;
-use Cybersai\USSD\Requests\USSDRequest;
+use Cybersai\USSD\Requests\UssdRequest;
 
 abstract class TemplateViewValidator implements ViewValidator
 {
     /** @var ViewGroup[] $views Array of Groups */
     protected $views;
-    /** @var USSDRequest $request */
+    /** @var UssdRequest $request */
     protected $request;
 
     /**
      * TemplateViewGroup constructor.
-     * @param USSDRequest $request
+     * @param UssdRequest $request
      */
     public function __construct($request)
     {

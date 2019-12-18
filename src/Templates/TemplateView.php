@@ -10,7 +10,7 @@
 namespace Cybersai\USSD\Templates;
 
 use Cybersai\USSD\Interfaces\View;
-use Cybersai\USSD\Requests\USSDRequest;
+use Cybersai\USSD\Requests\UssdRequest;
 
 /**
  * Abstract Class TemplateView define pattern to be followed by child classes.
@@ -29,12 +29,12 @@ abstract class TemplateView implements View
     protected $footer = '';
     /** @var string $next ClassName of the next ussd view. */
     protected $next;
-    /** @var USSDRequest $request Request object in view */
+    /** @var UssdRequest $request Request object in view */
     protected $request;
 
     /**
      * TemplateView constructor.
-     * @param USSDRequest $request
+     * @param UssdRequest $request
      */
     public function __construct($request)
     {

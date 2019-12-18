@@ -6,9 +6,9 @@ namespace Cybersai\USSD\Adapters;
 
 use Cybersai\USSD\Constants\Hubtel;
 use Cybersai\USSD\Interfaces\ApiRequest;
-use Cybersai\USSD\Requests\USSDRequest;
+use Cybersai\USSD\Requests\UssdRequest;
 
-class HubtelRequestAdapter extends USSDRequest implements ApiRequest
+class HubtelRequestAdapter extends UssdRequest implements ApiRequest
 {
     /**
      * KorbaRequestAdapter constructor.

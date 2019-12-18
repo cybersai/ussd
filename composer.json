@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Cybersai\\USSD\\": "src"
+            "Cybersai\\Ussd\\": "src"
         }
     },
     "minimum-stability": "dev",

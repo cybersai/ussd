@@ -1,19 +1,23 @@
-# ussd
-A library to facilitate the development of ussd for various mobile operators
+# USSD Library [PHP]
 
-## installation
-To install,  use composer package manage. Just run the following command in the terminal while in your project dir.
+A library to facilitate the development of USSD applications for various mobile operators in Ghana.
 
+## Installation
+
+You can install the package via composer:
+
+```bash
+$ composer require cybersai/korba-ussd
 ```
-composer require cybersai/korba-ussd
-```
 
-## Usage
-See documentation for more information.
-[USSD Docs](https://cybersai.github.io/ussd)
+## Documentation
+
+You'll find the documentation on [https://cybersai.github.io/ussd](https://cybersai.github.io/ussd)
+
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-This project is licensed under the MIT license
-[MIT](https://choosealicense.com/licenses/mit/)
+
+MIT. Please see the [license file](LICENSE) for more information.

@@ -22,15 +22,13 @@
         <p>
             To install the library using composer run the following command.
         </p>
-        <pre><code>
-composer require cybersai/ussd
-        </code></pre>
+        <pre><code>composer require cybersai/ussd</code></pre>
         <p>
-            If not using composer, you can download the zip folder on <a href="https://github.com/CyberSai/ussd">github</a>
+            If not using composer, you can download the zip folder on <a target="_blank" href="https://github.com/CyberSai/ussd">github</a>
         </p>
 
 
-        <h1>Basic Understanding</h1>
+        <h1>Usage</h1>
 
 
         <h2>Views</h2>
@@ -49,7 +47,8 @@ composer require cybersai/ussd
         </div>
 
         <h4>Code</h4>
-        <pre><code>
+        <pre><code>use Cybersai\Ussd\Templates\TemplateView;
+
 class MyView extends TemplateView {
 
     public function __construct($request)
@@ -70,8 +69,8 @@ class MyView extends TemplateView {
     {
         // TODO: Implement getSectionSeparatorTwo() method.
     }
-}
-        </code></pre>
+}</code></pre>
+
         <h4>Explanation</h4>
         <p>
             In your class that inherits from TemplateView class, it has the following parameters, title, content,
@@ -89,7 +88,7 @@ class MyView extends TemplateView {
 
         <h5>function getSectionSeparatorOne()</h5>
         <p>
-            This returns the string with will separate the title from the content.
+            This returns the string will separate the title from the content.
             An Empty String means the title and the content will be cascaded together without a space between them.
             A String with end of line character i.e. <code>"\n"</code> will leave a blank line between the title and
             the content.
@@ -100,13 +99,14 @@ class MyView extends TemplateView {
             They are:
         </p>
         <ul>
-            <li>Cybersai\Modifiers\SectionSeperatorOneDoubleLineBreak - returns <code>"\n\n"</code></li>
-            <li>Cybersai\Modifiers\SectionSeperatorOneLineBreak - returns <code>"\n"</code></li>
-            <li>Cybersai\Modifiers\SectionSeperatorOneNoLineBreak - returns <code>""</code></li>
+            <li>Cybersai\Ussd\Modifiers\SectionSeperatorOneDoubleLineBreak - returns <code>"\n\n"</code></li>
+            <li>Cybersai\Ussd\Modifiers\SectionSeperatorOneLineBreak - returns <code>"\n"</code></li>
+            <li>Cybersai\Ussd\Modifiers\SectionSeperatorOneNoLineBreak - returns <code>""</code></li>
         </ul>
+
         <h6>Sample Usage</h6>
-        <pre><code>
-use Cybersai\Modifiers\SectionSeparatorOneDoubleLineBreak;
+        <pre><code>use Cybersai\Ussd\Templates\TemplateView;
+use Cybersai\Ussd\Modifiers\SectionSeparatorOneDoubleLineBreak;
 
 class MyView extends TemplateView {
 use SectionSeparatorOneDoubleLineBreak;
@@ -124,8 +124,7 @@ use SectionSeparatorOneDoubleLineBreak;
     {
         // TODO: Implement getSectionSeparatorTwo() method.
     }
-}
-        </code></pre>
+}</code></pre>
 
         <h5>function getSectionSeparatorTwo()</h5>
         <p>
@@ -141,21 +140,21 @@ use SectionSeparatorOneDoubleLineBreak;
             To Avoid Having to Specify the Two Traits. Pre define Styles are included. They are:
         </p>
         <ul>
-            <li>Cybersai\Styles\SimpleSingleView - returns <code>""</code> and <code>""</code> for SeparatorOne
+            <li>Cybersai\Ussd\Styles\SimpleSingleView - returns <code>""</code> and <code>""</code> for SeparatorOne
             and SepatorTwo Respectively</li>
-            <li>Cybersai\Styles\NormalTitleView - returns <code>"\n\n"</code> and <code>""</code> for SeparatorOne
+            <li>Cybersai\Ussd\Styles\NormalTitleView - returns <code>"\n\n"</code> and <code>""</code> for SeparatorOne
                 and SeparatorTwo Respectively</li>
-            <li>Cybersai\Styles\NormalTitleWithFooterView - returns <code>"\n\n"</code> and <code>"\n\n"</code> for
+            <li>Cybersai\Ussd\Styles\NormalTitleWithFooterView - returns <code>"\n\n"</code> and <code>"\n\n"</code> for
                 SeparatorOne and SeparatorTwo Respectively</li>
-            <li>Cybersai\Styles\CompactTitleView - returns <code>"\n"</code> and <code>""</code> for SeparatorOne
+            <li>Cybersai\Ussd\Styles\CompactTitleView - returns <code>"\n"</code> and <code>""</code> for SeparatorOne
                 and SeparatorTwo Respectively</li>
-            <li>Cybersai\Styles\CompactTitleWithFooterView - returns <code>"\n"</code> and <code>"\n"</code> for
+            <li>Cybersai\Ussd\Styles\CompactTitleWithFooterView - returns <code>"\n"</code> and <code>"\n"</code> for
                 SeparatorOne and SeparatorTwo Respectively</li>
         </ul>
 
         <h5>Sample Usage With Styles</h5>
-        <pre><code>
-use Cybersai\Styles\NormalTitleWithFooterView;
+        <pre><code>use Cybersai\Ussd\Templates\TemplateView;
+use Cybersai\Ussd\Styles\NormalTitleWithFooterView;
 
 class MyView extends TemplateView
 {
@@ -169,8 +168,113 @@ class MyView extends TemplateView
         $this->next = NextView::class;
         parent::__construct($request);
     }
-}
-        </code></pre>
+}</code></pre>
+
+
+        <h3>TemplateListView</h3>
+
+        <h4>Diagram</h4>
+
+        <div style="text-align: center">
+            <img src="list_view.png" alt="Template List View">
+        </div>
+
+        <h4>Code</h4>
+        <pre><code>use Cybersai\Ussd\Templates\TemplateListView
+
+class MyListView extends TemplateListView {
+
+    public function __construct($request)
+    {
+        $this->title = 'Title';
+        $this->sub_title = 'Sub Title';
+        $this->content = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'];
+        $this->sub_footer = 'Sub Footer';
+        $this->footer = 'Footer';
+        $this->page = $request->getPage();
+        $this->number_per_page = 3;
+        $this->next = NextView::class;
+        parent::__construct($request);
+    }
+
+    function getSectionSeparatorOne()
+    {
+        // TODO: Implement getSectionSeparatorOne() method.
+    }
+
+    function getSectionSeparatorTwo()
+    {
+        // TODO: Implement getSectionSeparatorTwo() method.
+    }
+
+    function getSubTitleSeparator()
+    {
+        // TODO: Implement getSubTitleSeparator() method.
+    }
+
+    function getListSeparator()
+    {
+        // TODO: Implement getListSeparator() method.
+    }
+
+    function getNumberingSeparator()
+    {
+        // TODO: Implement getNumberingSeparator() method.
+    }
+
+    function getNumberingForIndex($index)
+    {
+        // TODO: Implement getNumberingForIndex() method.
+    }
+
+    function getListItemForIndex($index)
+    {
+        // TODO: Implement getListItemForIndex() method.
+    }
+
+    function getSubFooterSeparator()
+    {
+        // TODO: Implement getSubFooterSeparator() method.
+    }
+}</code></pre>
+
+        <h4>Explanation</h4>
+        <p>
+            TemplateListView inherits from TemplateView. The method with needs to be implemented are similar to
+            that of TemplateView. Then Extra data in the view are similar to that of TemplateView. Finally,
+            there are modifiers and styles for TemplateListView as well. Just play around and be happy.
+        </p>
+        <h5>Sample Code With Style and Modifiers</h5>
+        <pre><code>use Cybersai\Ussd\Templates\TemplateListView;
+use Cybersai\Ussd\Styles\NormalTitledWithFooterView;
+use Cybersai\Ussd\Styles\CompactSubTitledWithSubFooterView;
+use Cybersai\Ussd\Modifiers\RomanNumericLowerCaseNumbering;
+use Cybersai\Ussd\Modifiers\ListSeparatorLineBreak;
+use Cybersai\Ussd\Modifiers\NumberingSeparatorBracketPlusSpace;
+use Cybersai\Ussd\Modifiers\StringArrayList;
+
+class MyListView extends TemplateListView
+{
+    use NormalTitleWithFooterView;
+    use CompactSubTitleWithSubFooterListView;
+    use RomanNumericLowerCaseNumbering;
+    use ListSeparatorLineBreak;
+    use NumberingSeparatorBracketPlusSpace;
+    use StringArrayList;
+
+    public function __construct($request)
+    {
+        $this->title = 'Title';
+        $this->sub_title = 'Sub Title';
+        $this->content = ['One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight'];
+        $this->sub_footer = 'Sub Footer';
+        $this->footer = 'Footer';
+        $this->page = $request->getPage();
+        $this->number_per_page = 3;
+        parent::__construct($request);
+        $this->next = SecondView::class;
+    }
+}</code></pre>
     </div>
 </body>
 </html>

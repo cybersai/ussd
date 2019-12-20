@@ -52,26 +52,7 @@ class SecondView extends TemplateView
     }
 }
 
-class MyView extends TemplateView {
 
-    public function __construct($request)
-    {
-        $this->title = 'Title';
-        $this->content = 'Content';
-        $this->footer = 'Footer';
-        parent::__construct($request);
-    }
-
-    function getSectionSeparatorOne()
-    {
-        // TODO: Implement getSectionSeparatorOne() method.
-    }
-
-    function getSectionSeparatorTwo()
-    {
-        // TODO: Implement getSectionSeparatorTwo() method.
-    }
-}
 
 class ViewValidator extends TemplateViewValidator
 {

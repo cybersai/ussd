@@ -63,7 +63,7 @@ abstract class TemplateView implements View
         return $this->next;
     }
 
-    public function forceEnd()
+    public final function forceEnd()
     {
         $this->next = null;
     }

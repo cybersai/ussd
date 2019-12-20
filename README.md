@@ -7,7 +7,7 @@ A library to facilitate the development of USSD applications for various mobile 
 You can install the package via composer:
 
 ```bash
-$ composer require cybersai/korba-ussd
+$ composer require cybersai/ussd
 ```
 
 ## Supported USSD providers [Ghana]:

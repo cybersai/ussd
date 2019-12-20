@@ -28,6 +28,10 @@ class UssdRouter
         $this->config = $config;
     }
 
+    /**
+     * @deprecated
+     * @param string $user_input
+     */
     public function acceptUserInput($user_input) {
         $this->request->setUserInput($user_input);
     }
@@ -37,11 +41,15 @@ class UssdRouter
     }
 
     /**
+     * @param string $user_input
      * @return TemplateView
      * @throws ViewNotFoundException
      */
-    public function route()
+    public function route($user_input = null)
     {
+        if ($user_input !== null) {
+            $this->request->setUserInput($user_input);
+        }
         $view = $this->request->getLastView();
         $view = $this->validateView($view);
         $next_view_name = $view->getNext();

@@ -10,6 +10,12 @@ You can install the package via composer:
 $ composer require cybersai/korba-ussd
 ```
 
+## Supported USSD providers [Ghana]:
+* [korba](http://korbaweb.com)
+* [hubtel](https://developers.hubtel.com/docs/getting-started-with-ussd)
+* [nsano](https://www.nsano.com)
+* [txtghana](https://www.txtghana.com)
+
 ## Documentation
 
 You'll find the documentation on [https://cybersai.github.io/ussd](https://cybersai.github.io/ussd)

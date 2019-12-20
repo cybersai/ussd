@@ -7,42 +7,38 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
+    <!-- Custom styles -->
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>About</h1>
+        <!-- Introduction -->
+        <h1>Introduction</h1>
         <p>
-            This is a project meant to help developer easily build USSD application which is Operator Agnostic.
-            It built in PHP with no dependency needed.
-            The library is flexible to allow for customization.
+            This package is meant to help developers easily build a USSD application which is Operator Agnostic. It is built with PHP with no dependencies needed. The library was made flexible to allow for customization.
         </p>
 
-
-        <h1>Installation</h1>
+        <!-- Installation and Setup -->
+        <h1 class="spacer">Installation and Setup</h1>
         <p>
-            To install the library using composer run the following command.
+            You can install the package via composer:
         </p>
         <pre><code>
 composer require cybersai/ussd
         </code></pre>
         <p>
-            If not using composer, you can download the zip folder on <a href="https://github.com/CyberSai/ussd">github</a>
+            You can download the zip folder on <a href="https://github.com/CyberSai/ussd">github</a> if you don't want to use composer.
         </p>
 
-
-        <h1>Basic Understanding</h1>
-
-
+        <!-- Basic Usage -->
+        <h1 class="spacer">Basic Usage</h1>
         <h2>Views</h2>
         <p>
-            Views are class that help render your USSD output on the mobile phone.
-            USSD views usually may include a list or not. This project allow for two abstract view Class TemplateView
-            and TemplateListView. This view are rendered in the following format.
+            Views are classes that help render your USSD output on the mobile phone. USSD views usually include a list or not. This package ships with two abstract view Classes, TemplateView and TemplateListView. These views are rendered in the following format.
         </p>
 
-
-        <h3>TemplateView</h3>
-
+        <!-- TemplateView -->
+        <h3 class="spacer">TemplateView</h3>
         <h4>Diagram</h4>
         <div style="text-align: center">
             <img src="view.png" alt="Template View">
@@ -74,30 +70,36 @@ class MyView extends TemplateView {
         </code></pre>
         <h4>Explanation</h4>
         <p>
-            In your class that inherits from TemplateView class, it has the following parameters, title, content,
-            footer and next.
-            The title is the Title of the View. if not specify, it defaults to an empty string.
-            The footer is the Footer of the View. if not specify also defaults to an empty string.
-            The content needs to be specified and should be a string.
-            The next parameter is meant to hold the Name of the next view including the correct path to
-            where it can be located. To easily do that, it advice you use <code>NextView::class</code> where NextView
-            is the Class of the nextView.
+            A class that extends the TemplateView class has the following parameters: <b>title</b>, <b>content</b>, <b>footer</b> and <b>next</b>.
         </p>
         <p>
+            <b>Title</b>: The title of the view. Defaults to an empty string when not specified. 
+        </p>
+        <p>
+            <b>Footer</b>: The footer of the view. Defaults to an empty string when not specified.
+        </p>
+        <p>
+            <b>Content</b>: The content needs to be specified and should be a string.
+        </p>
+        <p>
+            <b>Next</b>: The next parameter holds the <b>Name</b> of the next view including the correct path to its location.
+
+            <br/>
+
+            Use <code>NextView::class</code> where NextView is the Class of the nextView.
+        </p>
+
+
+        <p class="spacer">
             There are two methods you have to implement and both must return a string.
         </p>
 
         <h5>function getSectionSeparatorOne()</h5>
         <p>
-            This returns the string with will separate the title from the content.
-            An Empty String means the title and the content will be cascaded together without a space between them.
-            A String with end of line character i.e. <code>"\n"</code> will leave a blank line between the title and
-            the content.
+            This returns a string which separates the title from the content. An Empty String means the title and the content will be cascaded together without a space between them. A String with end of line character i.e. <code>"\n"</code> will leave a blank line between the title and the content.
         </p>
         <p>
-            To avoid making users override the method every time, especially with common logic.
-            Traits which implement those logics have been included.
-            They are:
+            To avoid making users override the method every time, especially with common logic. Traits that implement those logics have been included. They are:
         </p>
         <ul>
             <li>Cybersai\Modifiers\SectionSeperatorOneDoubleLineBreak - returns <code>"\n\n"</code></li>
@@ -129,8 +131,7 @@ use SectionSeparatorOneDoubleLineBreak;
 
         <h5>function getSectionSeparatorTwo()</h5>
         <p>
-            Same as <code>function getSectionSeparatorOne()</code> except the space is between content and footer.
-            Traits to help are
+            Same as <code>function getSectionSeparatorOne()</code> except the space is between content and footer. Traits to help are:
         </p>
         <ul>
             <li>Cybersai\Modifiers\SectionSeperatorTwoDoubleLineBreak - returns <code>"\n\n"</code></li>
@@ -138,19 +139,14 @@ use SectionSeparatorOneDoubleLineBreak;
             <li>Cybersai\Modifiers\SectionSeperatorTwoNoLineBreak - returns <code>""</code></li>
         </ul>
         <p>
-            To Avoid Having to Specify the Two Traits. Pre define Styles are included. They are:
+            To Avoid Having to Specify the Two Traits. Predefined Styles are included. They are:
         </p>
         <ul>
-            <li>Cybersai\Styles\SimpleSingleView - returns <code>""</code> and <code>""</code> for SeparatorOne
-            and SepatorTwo Respectively</li>
-            <li>Cybersai\Styles\NormalTitleView - returns <code>"\n\n"</code> and <code>""</code> for SeparatorOne
-                and SeparatorTwo Respectively</li>
-            <li>Cybersai\Styles\NormalTitleWithFooterView - returns <code>"\n\n"</code> and <code>"\n\n"</code> for
-                SeparatorOne and SeparatorTwo Respectively</li>
-            <li>Cybersai\Styles\CompactTitleView - returns <code>"\n"</code> and <code>""</code> for SeparatorOne
-                and SeparatorTwo Respectively</li>
-            <li>Cybersai\Styles\CompactTitleWithFooterView - returns <code>"\n"</code> and <code>"\n"</code> for
-                SeparatorOne and SeparatorTwo Respectively</li>
+            <li>Cybersai\Styles\SimpleSingleView - returns <code>""</code> and <code>""</code> for SeparatorOne and SepatorTwo Respectively</li>
+            <li>Cybersai\Styles\NormalTitleView - returns <code>"\n\n"</code> and <code>""</code> for SeparatorOne and SeparatorTwo Respectively</li>
+            <li>Cybersai\Styles\NormalTitleWithFooterView - returns <code>"\n\n"</code> and <code>"\n\n"</code> for SeparatorOne and SeparatorTwo Respectively</li>
+            <li>Cybersai\Styles\CompactTitleView - returns <code>"\n"</code> and <code>""</code> for SeparatorOne and SeparatorTwo Respectively</li>
+            <li>Cybersai\Styles\CompactTitleWithFooterView - returns <code>"\n"</code> and <code>"\n"</code> for SeparatorOne and SeparatorTwo Respectively</li>
         </ul>
 
         <h5>Sample Usage With Styles</h5>
@@ -173,4 +169,5 @@ class MyView extends TemplateView
         </code></pre>
     </div>
 </body>
+
 </html>

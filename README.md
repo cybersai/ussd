@@ -1,5 +1,12 @@
 # USSD Library [PHP]
 
+![Packagist Version](https://img.shields.io/packagist/v/cybersai/ussd?style=for-the-badge)
+![Packagist](https://img.shields.io/packagist/dt/cybersai/ussd?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/cybersai/ussd?style=for-the-badge)
+![Travis (.org)](https://img.shields.io/travis/cybersai/ussd?style=for-the-badge)
+
+
+
 A library to facilitate the development of USSD applications for various mobile operators in Ghana.
 
 ## Installation
@@ -28,3 +35,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 
 MIT. Please see the [license file](LICENSE) for more information.
+
+[link-]

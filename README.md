@@ -1,9 +1,9 @@
 # USSD Library [PHP]
 
-![Packagist Version](https://img.shields.io/packagist/v/cybersai/ussd?style=for-the-badge)
-![Packagist](https://img.shields.io/packagist/dt/cybersai/ussd?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/cybersai/ussd?style=for-the-badge)
-![Travis (.org)](https://img.shields.io/travis/cybersai/ussd?style=for-the-badge)
+[![Packagist Version](https://img.shields.io/packagist/v/cybersai/ussd?style=for-the-badge)](https://packagist.org/packages/cybersai/ussd)
+[![Packagist](https://img.shields.io/packagist/dt/cybersai/ussd?style=for-the-badge)](https://packagist.org/packages/cybersai/ussd)
+[![GitHub repo size](https://img.shields.io/github/repo-size/cybersai/ussd?style=for-the-badge)](https://github.com/CyberSai/ussd)
+[![Travis (.org)](https://img.shields.io/travis/cybersai/ussd?style=for-the-badge)](https://travis-ci.org/cybersai/ussd)
 
 
 

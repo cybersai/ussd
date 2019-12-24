@@ -12,7 +12,7 @@ class IAmSimpleView extends TemplateView
     use SimpleSingleView;
     public function __construct($request)
     {
-        $this->content = 'I am Simple';
+        $this->content = 'I am simple';
         parent::__construct($request);
     }
 }

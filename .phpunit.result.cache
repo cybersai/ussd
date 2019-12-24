@@ -1,1 +1,1 @@
-C:37:"PHPUnit\Runner\DefaultTestResultCache":147:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:1:{s:87:"Cybersai\Tests\Adapters\HubtelRequestAdapterTest::it_parses_the_correct_hubtel_response";d:0.104;}}}
+C:37:"PHPUnit\Runner\DefaultTestResultCache":147:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:1:{s:87:"Cybersai\Tests\Adapters\HubtelRequestAdapterTest::it_parses_the_correct_hubtel_response";d:0.004;}}}

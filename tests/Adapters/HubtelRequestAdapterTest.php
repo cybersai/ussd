@@ -12,11 +12,6 @@ use PHPUnit\Framework\TestCase;
 class HubtelRequestAdapterTest extends TestCase
 {
     /** @test */
-    public function it_calls_the_parent_constructor()
-    {
-
-    }
-    /** @test */
     public function it_parses_the_correct_hubtel_response()
     {
         $request = [
@@ -27,7 +22,7 @@ class HubtelRequestAdapterTest extends TestCase
         ];
 
         $adapter = new HubtelRequestAdapter($request);
-        $view = new IAmSimpleView($request);
+        $view = new IAmSimpleView($adapter);
         $response = $adapter->respondToProvider($view);
         $this->assertIsArray($response);
         $this->assertEquals([

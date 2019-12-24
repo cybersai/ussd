@@ -4,6 +4,7 @@
 namespace Cybersai\Tests\Adapters;
 
 
+use Cybersai\Tests\Helpers\IAmSimpleView;
 use Cybersai\Ussd\Adapters\HubtelRequestAdapter;
 use Cybersai\Ussd\Constants\Hubtel;
 use Cybersai\Ussd\Styles\SimpleSingleView;
@@ -12,17 +13,9 @@ use PHPUnit\Framework\TestCase;
 
 class HubtelRequestAdapterTest extends TestCase
 {
+    /** @test */
     public function it_parses_the_correct_hubtel_response()
     {
-//        class MyView extends TemplateView {
-//            use SimpleSingleView;
-//            public function __construct($request)
-//            {
-//                $this->content = 'I am Simple';
-//                parent::__construct($request);
-//            }
-//        }
-
         $request = [
             Hubtel::session_id => '1234',
             Hubtel::MSISDN => '233234567890',
@@ -30,7 +23,8 @@ class HubtelRequestAdapterTest extends TestCase
             Hubtel::user_input => '*365#'
         ];
         $adapter = new HubtelRequestAdapter($request);
-//        $response = $adapter->respondToProvider()
-        $this->assertTrue(true);
+        $view = new IAmSimpleView($request);
+        $response = $adapter->respondToProvider($view);
+        $this->assertIsArray($response);
     }
 }

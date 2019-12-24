@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class TxtGhanaRequestAdapterTest extends TestCase
 {
     /** @test */
-    public function it_parses_the_correct_txt_ghana_response()
+    function it_parses_the_correct_txt_ghana_response()
     {
         $request = [
             TxtGhana::session_id => '1234',

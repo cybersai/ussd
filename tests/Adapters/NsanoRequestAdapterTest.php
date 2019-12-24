@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class NsanoRequestAdapterTest extends TestCase
 {
     /** @test */
-    public function it_parses_the_correct_nsano_response()
+    function it_parses_the_correct_nsano_response()
     {
         $request = [
             Nsano::session_id => '1234',

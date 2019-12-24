@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class KorbaRequestAdapterTest extends TestCase
 {
     /** @test */
-    public function it_parses_the_correct_korba_response()
+    function it_parses_the_correct_korba_response()
     {
         $request = [
             Korba::session_id => '1234',

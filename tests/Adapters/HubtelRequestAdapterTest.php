@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 class HubtelRequestAdapterTest extends TestCase
 {
     /** @test */
-    public function it_parses_the_correct_hubtel_response()
+    function it_parses_the_correct_hubtel_response()
     {
         $request = [
             Hubtel::session_id => '1234',

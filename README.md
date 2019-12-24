@@ -15,6 +15,7 @@ $ composer require cybersai/ussd
 * [hubtel](https://developers.hubtel.com/docs/getting-started-with-ussd)
 * [nsano](https://www.nsano.com)
 * [txtghana](https://www.txtghana.com)
+* Fully Extensible
 
 ## Documentation
 

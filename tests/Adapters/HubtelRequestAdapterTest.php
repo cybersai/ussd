@@ -31,6 +31,6 @@ class HubtelRequestAdapterTest extends TestCase
         ];
         $adapter = new HubtelRequestAdapter($request);
 //        $response = $adapter->respondToProvider()
-//        $this->
+        $this->assertTrue(true);
     }
 }

@@ -35,5 +35,3 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 
 MIT. Please see the [license file](LICENSE) for more information.
-
-[link-]

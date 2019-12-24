@@ -15,5 +15,8 @@
         }
     },
     "minimum-stability": "alpha",
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^8.5"
+    }
 }

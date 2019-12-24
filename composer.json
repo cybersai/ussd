@@ -14,6 +14,11 @@
             "Cybersai\\Ussd\\": "src"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Cybersai\\Tests\\": "tests"
+        }
+    },
     "minimum-stability": "alpha",
     "require": {},
     "require-dev": {

@@ -57,11 +57,12 @@ class UssdRouter
         while (!$object instanceof TemplateView) {
             if ($object instanceof TemplateViewGroup) {
                 $object = $object->getSelectedView();
+                continue;
             } else if ($object instanceof TemplateViewValidator) {
                 $object = $object->getValidView();
-            } else {
-                throw new ViewNotFoundException();
+                continue;
             }
+            throw new ViewNotFoundException();
         }
         return $object;
     }

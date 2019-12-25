@@ -38,18 +38,19 @@ class UssdRouterConfig
     private function setConfig(&$bool_key, &$storage_value, &$storage_key, $value) {
         if ($value === null) {
             $bool_key = false;
-        } else {
-            $bool_key = true;
-            if (is_string($value)) {
-                $storage_key = $value;
-            } else if (is_array($value)) {
-                $keys = array_keys($value);
-                $storage_key = (string)$keys[0];
-                $storage_value = $value[$storage_key];
-            } else {
-                $bool_key = false;
-            }
+            return;
         }
+        $bool_key = true;
+        if (is_string($value)) {
+            $storage_key = $value;
+            return;
+        } else if (is_array($value)) {
+            $keys = array_keys($value);
+            $storage_key = (string)$keys[0];
+            $storage_value = $value[$storage_key];
+            return;
+        }
+        $bool_key = false;
     }
 
     private function enabledFor($bool_key, $storage_key, $storage_value, $view, $input) {

@@ -20,6 +20,8 @@ use Cybersai\Ussd\Interfaces\ListView;
  */
 abstract class TemplateListView extends TemplateView implements ListView
 {
+    /** @var array $content Content of the ussd view. */
+    protected $content = [];
     /** @var int $page Current Page Number */
     protected $page = 1;
     /** @var int $number_per_page Total Number of Pages */

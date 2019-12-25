@@ -99,7 +99,7 @@ class UssdRouterTest extends TestCase
         return [
             [null],
             ['Cherry'],
-            [1]
+            [1],
         ];
     }
 

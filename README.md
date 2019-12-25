@@ -12,7 +12,7 @@ A library to facilitate the development of USSD applications for various mobile 
 
 You can install the package via composer:
 
-```bash
+```shell script
 $ composer require cybersai/ussd
 ```
 
@@ -26,6 +26,13 @@ $ composer require cybersai/ussd
 ## Documentation
 
 You'll find the documentation on [https://cybersai.github.io/ussd](https://cybersai.github.io/ussd)
+
+## Test
+To test, run the following command
+```shell script
+$ composer dump-autoload
+$ vendor/bin/phpunit
+```
 
 ## Contributing
 

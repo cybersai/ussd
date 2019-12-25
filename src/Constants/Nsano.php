@@ -6,15 +6,15 @@ namespace Cybersai\Ussd\Constants;
 
 final class Nsano
 {
-    const session_id = 'UserSessionID';
+    const SESSION_ID = 'UserSessionID';
     const MSISDN = 'msisdn';
-    const network = 'network';
-    const user_input = 'msg';
-    const type = 'action'; # prompt, input, showMenu
+    const NETWORK = 'network';
+    const USER_INPUT = 'msg';
+    const TYPE = 'action'; # prompt, input, showMenu
     # Response
-    const response_message = 'title';
-    const response_type = 'action';
+    const RESPONSE_MESSAGE = 'title';
+    const RESPONSE_TYPE = 'action';
     # State
-    const response_type_continue = 'input';
-    const response_type_end = 'prompt';
+    const RESPONSE_TYPE_CONTITNUE = 'input';
+    const RESPONSE_TYPE_END = 'prompt';
 }

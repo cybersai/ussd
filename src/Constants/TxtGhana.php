@@ -6,17 +6,17 @@ namespace Cybersai\Ussd\Constants;
 
 final class TxtGhana
 {
-    const session_id = 'sessionID';
+    const SESSION_ID = 'sessionID';
     const MSISDN = 'msisdn';
-    const network = 'network';
-    const user_input = 'ussdString';
-    const type = 'ussdServiceOp'; # 1, 2, 17, 18
+    const NETWORK = 'network';
+    const USER_INPUT = 'ussdString';
+    const TYPE = 'ussdServiceOp'; # 1, 2, 17, 18
     # Response
-    const response_message = 'message';
-    const response_type = 'ussdServiceOp';
+    const RESPONSE_MESSAGE = 'message';
+    const RESPONSE_TYPE = 'ussdServiceOp';
     # State
-    const response_type_continue = 2;
-    const response_type_end = 17;
-    const request_initial = 1;
-    const request_continue = 18;
+    const RESPONSE_TYPE_CONTINUE = 2;
+    const RESPONSE_TYPE_END = 17;
+    const REQUEST_INITIAL = 1;
+    const REQUEST_CONTINUE = 18;
 }

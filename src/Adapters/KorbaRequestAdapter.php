@@ -16,18 +16,18 @@ class KorbaRequestAdapter extends UssdRequest implements ApiRequest
      */
     public function __construct($request)
     {
-        $session_id = $request[Korba::session_id];
+        $session_id = $request[Korba::SESSION_ID];
         $MSISDN = $request[Korba::MSISDN];
-        $network = $request[Korba::network];
-        $user_input = $request[Korba::user_input];
+        $network = $request[Korba::NETWORK];
+        $user_input = $request[Korba::USER_INPUT];
         parent::__construct($session_id, $MSISDN, $network, $user_input);
     }
 
     function respondToProvider($view)
     {
         return [
-            Korba::response_message => $view->parseToString(),
-            Korba::response_type => $view->hasNext() ? Korba::response_type_continue : Korba::response_type_end
+            Korba::RESPONSE_MESSAGE => $view->parseToString(),
+            Korba::RESPONSE_TYPE => $view->hasNext() ? Korba::RESPONSE_TYPE_CONTINUE : Korba::RESPONSE_TYPE_END
         ];
     }
 

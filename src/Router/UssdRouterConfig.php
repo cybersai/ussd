@@ -10,30 +10,30 @@ class UssdRouterConfig
 {
     const ALL = 'all';
     const NONE = 'none';
-    protected $go_back_enabled;
-    protected $go_to_beginning_enabled;
-    protected $go_to_list_next_page_enabled;
-    protected $go_to_list_previous_page_enabled;
-    protected $go_back;
-    protected $go_to_beginning;
-    protected $go_to_list_next_page;
-    protected $go_to_list_previous_page;
-    protected $go_back_key;
-    protected $go_to_beginning_key;
-    protected $go_to_list_next_page_key;
-    protected $go_to_list_previous_page_key;
+    protected $back_enabled;
+    protected $beginning_enabled;
+    protected $next_enabled;
+    protected $previous_enabled;
+    protected $back;
+    protected $beginning;
+    protected $next;
+    protected $previous;
+    protected $back_key;
+    protected $beginning_key;
+    protected $next_key;
+    protected $previous_key;
 
     function __construct($go_back = null, $go_to_beginning = null, $go_to_list_next_page = null,
                          $go_to_list_previous_page = null)
     {
-        $this->setConfig($this->go_back_enabled, $this->go_back, $this->go_back_key,
+        $this->setConfig($this->back_enabled, $this->back, $this->back_key,
             $go_back);
-        $this->setConfig($this->go_to_beginning_enabled, $this->go_to_beginning,
-            $this->go_to_beginning_key, $go_to_beginning);
-        $this->setConfig($this->go_to_list_next_page_enabled, $this->go_to_list_next_page,
-            $this->go_to_list_next_page_key, $go_to_list_next_page);
-        $this->setConfig($this->go_to_list_previous_page_enabled, $this->go_to_list_previous_page,
-            $this->go_to_list_previous_page_key, $go_to_list_previous_page);
+        $this->setConfig($this->beginning_enabled, $this->beginning,
+            $this->beginning_key, $go_to_beginning);
+        $this->setConfig($this->next_enabled, $this->next,
+            $this->next_key, $go_to_list_next_page);
+        $this->setConfig($this->previous_enabled, $this->previous,
+            $this->previous_key, $go_to_list_previous_page);
     }
 
     private function setConfig(&$bool_key, &$storage_value, &$storage_key, $value) {
@@ -45,7 +45,7 @@ class UssdRouterConfig
                 $storage_key = $value;
             } else if (is_array($value)) {
                 $keys = array_keys($value);
-                $storage_key = strval($keys[0]);
+                $storage_key = (string)$keys[0];
                 $storage_value = $value[$storage_key];
             } else {
                 $bool_key = false;
@@ -60,21 +60,17 @@ class UssdRouterConfig
                     return true;
                 } else if ($storage_value == get_class($view)) {
                     return true;
-                } else {
-                    return false;
                 }
+                return false;
             } else if (is_array($storage_value)) {
                 if (in_array(get_class($view), $storage_value)) {
                     return true;
-                } else {
-                    return false;
                 }
-            } else {
                 return false;
             }
-        } else {
             return false;
         }
+        return false;
     }
 
     /**
@@ -83,7 +79,7 @@ class UssdRouterConfig
      * @return bool
      */
     function goBackEnabledFor($view, $input) {
-        return $this->enabledFor($this->go_back_enabled, $this->go_back_key, $this->go_back, $view, $input);
+        return $this->enabledFor($this->back_enabled, $this->back_key, $this->back, $view, $input);
     }
 
     /**
@@ -92,7 +88,7 @@ class UssdRouterConfig
      * @return bool
      */
     function goToBeginningEnabledFor($view, $input) {
-        return $this->enabledFor($this->go_to_beginning_enabled, $this->go_to_beginning_key, $this->go_to_beginning, $view,
+        return $this->enabledFor($this->beginning_enabled, $this->beginning_key, $this->beginning, $view,
             $input);
     }
 
@@ -102,8 +98,8 @@ class UssdRouterConfig
      * @return bool
      */
     function goToListNextPageEnabledFor($view, $input) {
-        return $this->enabledFor($this->go_to_list_next_page_enabled, $this->go_to_list_next_page_key,
-            $this->go_to_list_next_page, $view, $input);
+        return $this->enabledFor($this->next_enabled, $this->next_key,
+            $this->next, $view, $input);
     }
 
     /**
@@ -112,7 +108,7 @@ class UssdRouterConfig
      * @return bool
      */
     function goToListPreviousPageEnabledFor($view, $input) {
-        return $this->enabledFor($this->go_to_list_previous_page_enabled, $this->go_to_list_previous_page_key,
-            $this->go_to_list_previous_page, $view, $input);
+        return $this->enabledFor($this->previous_enabled, $this->previous_key,
+            $this->previous, $view, $input);
     }
 }

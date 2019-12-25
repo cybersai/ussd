@@ -83,11 +83,12 @@ class UssdRouter
         } else if ($this->config->goToListPreviousPageEnabledFor($view, $this->request->getUserInput())) {
             $this->request->processPrevious();
             return $this->request->getLastView();
-        } else {
-            if ($this->request->getPage() !== 1) {
-                $this->request->resetPageNumber();
-            }
         }
+
+        if ($this->request->getPage() !== 1) {
+            $this->request->resetPageNumber();
+        }
+
         return $view;
     }
 }

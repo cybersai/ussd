@@ -12,18 +12,18 @@ use Cybersai\Ussd\Constants\TxtGhana;
 final class RouterUtil
 {
     public static function getUserInputFromKorbaRequest($array) {
-        return $array[Korba::user_input];
+        return $array[Korba::USER_INPUT];
     }
 
     public static function getUserInputFromTxtGhanaRequest($array) {
-        return $array[TxtGhana::user_input];
+        return $array[TxtGhana::USER_INPUT];
     }
 
     public static function getUserInputFromNsanoRequest($array) {
-        return $array[Nsano::user_input];
+        return $array[Nsano::USER_INPUT];
     }
 
     public static function getUserInputFromHubtelRequest($array) {
-        return $array[Hubtel::user_input];
+        return $array[Hubtel::USER_INPUT];
     }
 }

@@ -10,7 +10,6 @@
 namespace Cybersai\Ussd\Templates;
 
 use Cybersai\Ussd\Interfaces\ListView;
-use Cybersai\Ussd\Utils\ViewUtil;
 
 /**
  * Abstract Class TemplateListView define pattern to be followed by child classes.
@@ -33,14 +32,14 @@ abstract class TemplateListView extends TemplateView implements ListView
     public final function parseListToString()
     {
         $msg = "";
-        $start_index = ViewUtil::getListStartIndex($this->page, $this->number_per_page);
-        $limit = ViewUtil::getListEndLimit($this->page, $this->number_per_page, $this->content);
+        $start_index = $this->getListStartIndex();
+        $limit = $this->getListEndLimit();
         for($i = 0;$i < $limit;$i++) {
             if ($i == $limit - 1) {
                 $msg .= "{$this->getNumberingForIndex($i + $start_index)}{$this->getNumberingSeparator()}{$this->getListItemForIndex($i + $start_index)}";
-            } else {
-                $msg .= "{$this->getNumberingForIndex($i + $start_index)}{$this->getNumberingSeparator()}{$this->getListItemForIndex($i + $start_index)}{$this->getListSeparator()}";
+                continue;
             }
+            $msg .= "{$this->getNumberingForIndex($i + $start_index)}{$this->getNumberingSeparator()}{$this->getListItemForIndex($i + $start_index)}{$this->getListSeparator()}";
         }
         return $msg;
     }
@@ -52,4 +51,21 @@ abstract class TemplateListView extends TemplateView implements ListView
     {
         return "{$this->sub_title}{$this->getSubTitleSeparator()}{$this->parseListToString()}{$this->getSubFooterSeparator()}{$this->sub_footer}";
     }
+
+    private function isLastPage()
+    {
+        return $this->page * $this->number_per_page >= count($this->content);
+    }
+
+    private function getListStartIndex()
+    {
+        return $this->page * $this->number_per_page - $this->number_per_page;
+    }
+
+    private function getListEndLimit()
+    {
+        return self::isLastPage() ? count($this->content) -
+            ($this->page * $this->number_per_page - $this->number_per_page) : $this->number_per_page;
+    }
+
 }

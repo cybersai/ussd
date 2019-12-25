@@ -13,10 +13,10 @@ class TxtGhanaRequestAdapterTest extends TestCase
     function it_parses_the_correct_txt_ghana_response()
     {
         $request = [
-            TxtGhana::session_id => '1234',
+            TxtGhana::SESSION_ID => '1234',
             TxtGhana::MSISDN => '233234567890',
-            TxtGhana::network => '1',
-            TxtGhana::user_input => '*365#'
+            TxtGhana::NETWORK => '1',
+            TxtGhana::USER_INPUT => '*365#'
         ];
 
         $adapter = new TxtGhanaRequestAdapter($request);
@@ -24,8 +24,8 @@ class TxtGhanaRequestAdapterTest extends TestCase
         $response = $adapter->respondToProvider($view);
         $this->assertIsArray($response);
         $this->assertEquals([
-            TxtGhana::response_message => 'I am simple',
-            TxtGhana::response_type => TxtGhana::response_type_end,
+            TxtGhana::RESPONSE_MESSAGE => 'I am simple',
+            TxtGhana::RESPONSE_TYPE => TxtGhana::RESPONSE_TYPE_END,
         ], $response);
     }
 }

@@ -7,22 +7,22 @@ namespace Cybersai\Ussd\Constants;
 final class Hubtel
 {
     #Request
-    const session_id = 'SessionId';
+    const SESSION_ID = 'SessionId';
     const MSISDN = 'Mobile';
-    const network = 'Operator';
-    const user_input = 'Message';
-    const type = 'Type'; # Initiation, Response, Release, Timeout
+    const NETWORK = 'Operator';
+    const USER_INPUT = 'Message';
+    const TYPE = 'Type'; # Initiation, Response, Release, Timeout
     # Response
-    const response_message = 'Message';
-    const response_type = 'Type';
+    const RESPONSE_MESSAGE = 'Message';
+    const RESPONSE_TYPE = 'Type';
     # State
-    const response_type_continue = 'Response';
-    const response_type_end = 'Release';
-    const request_initial = 'Initial';
-    const request_continue = 'Response';
+    const RESPONSE_TYPE_CONTINUE = 'Response';
+    const RESPONSE_TYPE_END = 'Release';
+    const REQUEST_INITIAL = 'Initial';
+    const RESQUEST_CONTINUE = 'Response';
 
     # Hubtel Specific
-    const service_code = 'ServiceCode';
-    const sequence = 'Sequence';
-    const client_state = 'ClientState';
+    const SERVICE_CODE = 'ServiceCode';
+    const SEQUENCE = 'Sequence';
+    const CLIENT_STATE = 'ClientState';
 }

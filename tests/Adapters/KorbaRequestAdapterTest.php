@@ -13,10 +13,10 @@ class KorbaRequestAdapterTest extends TestCase
     function it_parses_the_correct_korba_response()
     {
         $request = [
-            Korba::session_id => '1234',
+            Korba::SESSION_ID => '1234',
             Korba::MSISDN => '233234567890',
-            Korba::network => '1',
-            Korba::user_input => '*365#'
+            Korba::NETWORK => '1',
+            Korba::USER_INPUT => '*365#'
         ];
 
         $adapter = new KorbaRequestAdapter($request);
@@ -24,8 +24,8 @@ class KorbaRequestAdapterTest extends TestCase
         $response = $adapter->respondToProvider($view);
         $this->assertIsArray($response);
         $this->assertEquals([
-            Korba::response_message => 'I am simple',
-            Korba::response_type => Korba::response_type_end,
+            Korba::RESPONSE_MESSAGE => 'I am simple',
+            Korba::RESPONSE_TYPE => Korba::RESPONSE_TYPE_END,
         ], $response);
     }
 }

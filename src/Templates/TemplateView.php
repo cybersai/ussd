@@ -21,7 +21,7 @@ use Cybersai\Ussd\Requests\UssdRequest;
  */
 abstract class TemplateView implements View
 {
-    /** @var string $content Content of the ussd view. */
+    /** @var string|array $content Content of the ussd view. */
     protected $content;
     /** @var string $title Title of the Ussd menu */
     protected $title = '';

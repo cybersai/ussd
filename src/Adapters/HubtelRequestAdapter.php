@@ -16,19 +16,19 @@ class HubtelRequestAdapter extends UssdRequest implements ApiRequest
      */
     public function __construct($request)
     {
-        $session_id = $request[Hubtel::session_id];
+        $session_id = $request[Hubtel::SESSION_ID];
         $MSISDN = $request[Hubtel::MSISDN];
-        $network = $request[Hubtel::network];
-        $user_input = $request[Hubtel::user_input];
+        $network = $request[Hubtel::NETWORK];
+        $user_input = $request[Hubtel::USER_INPUT];
         parent::__construct($session_id, $MSISDN, $network, $user_input);
     }
 
     public function respondToProvider($view)
     {
         return [
-            Hubtel::response_message => $view->parseToString(),
-            Hubtel::response_type => $view->hasNext() ? Hubtel::response_type_continue : Hubtel::response_type_end,
-            Hubtel::client_state => null
+            Hubtel::RESPONSE_MESSAGE => $view->parseToString(),
+            Hubtel::RESPONSE_TYPE => $view->hasNext() ? Hubtel::RESPONSE_TYPE_CONTINUE : Hubtel::RESPONSE_TYPE_END,
+            Hubtel::CLIENT_STATE => null
         ];
     }
 }

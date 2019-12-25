@@ -16,10 +16,10 @@ class NsanoRequestAdapter extends UssdRequest implements ApiRequest
      */
     public function __construct($request)
     {
-        $session_id = $request[Nsano::session_id];
+        $session_id = $request[Nsano::SESSION_ID];
         $MSISDN = $request[Nsano::MSISDN];
-        $network = $request[Nsano::network];
-        $user_input = $request[Nsano::user_input];
+        $network = $request[Nsano::NETWORK];
+        $user_input = $request[Nsano::USER_INPUT];
         parent::__construct($session_id, $MSISDN, $network, $user_input);
     }
 
@@ -27,9 +27,9 @@ class NsanoRequestAdapter extends UssdRequest implements ApiRequest
     {
         return [
             'USSDResp' => [
-                Nsano::response_type => $view->hasNext() ? Nsano::response_type_continue : Nsano::response_type_end,
+                Nsano::RESPONSE_TYPE => $view->hasNext() ? Nsano::RESPONSE_TYPE_CONTITNUE : Nsano::RESPONSE_TYPE_END,
                 'menus' => '',
-                Nsano::response_message => $view->parseToString()
+                Nsano::RESPONSE_MESSAGE => $view->parseToString()
             ]
         ];
     }

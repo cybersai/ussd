@@ -23,17 +23,16 @@ class UssdRouterConfig
     protected $next_key;
     protected $previous_key;
 
-    function __construct($go_back = null, $go_to_beginning = null, $go_to_list_next_page = null,
-                         $go_to_list_previous_page = null)
+    function __construct($back = null, $beginning = null, $next = null, $previous = null)
     {
         $this->setConfig($this->back_enabled, $this->back, $this->back_key,
-            $go_back);
+            $back);
         $this->setConfig($this->beginning_enabled, $this->beginning,
-            $this->beginning_key, $go_to_beginning);
+            $this->beginning_key, $beginning);
         $this->setConfig($this->next_enabled, $this->next,
-            $this->next_key, $go_to_list_next_page);
+            $this->next_key, $next);
         $this->setConfig($this->previous_enabled, $this->previous,
-            $this->previous_key, $go_to_list_previous_page);
+            $this->previous_key, $previous);
     }
 
     private function setConfig(&$bool_key, &$storage_value, &$storage_key, $value) {

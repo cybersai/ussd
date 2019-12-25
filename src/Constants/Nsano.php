@@ -15,6 +15,6 @@ final class Nsano
     const RESPONSE_MESSAGE = 'title';
     const RESPONSE_TYPE = 'action';
     # State
-    const RESPONSE_TYPE_CONTITNUE = 'input';
+    const RESPONSE_TYPE_CONTINUE = 'input';
     const RESPONSE_TYPE_END = 'prompt';
 }

@@ -22,15 +22,15 @@ class KorbaTest extends TestCase
     function provider()
     {
         return [
-            ['session_id'],
+            ['SESSION_ID'],
             ['MSISDN'],
-            ['network'],
-            ['user_input'],
-            ['type'],
-            ['response_message'],
-            ['response_type'],
-            ['response_type_continue'],
-            ['response_type_end'],
+            ['NETWORK'],
+            ['USER_INPUT'],
+            ['TYPE'],
+            ['RESPONSE_MESSAGE'],
+            ['RESPONSE_TYPE'],
+            ['RESPONSE_TYPE_CONTINUE'],
+            ['RESPONSE_TYPE_END'],
         ];
     }
 }

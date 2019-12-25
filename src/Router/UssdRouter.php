@@ -53,13 +53,18 @@ class UssdRouter
         $view = $this->request->getLastView();
         $view = $this->validateView($view);
         $next_view_name = $view->getNext();
+        if (!(is_string($next_view_name) && class_exists($next_view_name))) {
+            throw new ViewNotFoundException();
+        }
         $object = new $next_view_name($this->request);
         while (!$object instanceof TemplateView) {
             if ($object instanceof TemplateViewGroup) {
                 $object = $object->getSelectedView();
+                if ($object instanceof TemplateView) break;
                 continue;
             } else if ($object instanceof TemplateViewValidator) {
                 $object = $object->getValidView();
+                if ($object instanceof  TemplateView) break;
                 continue;
             }
             throw new ViewNotFoundException();

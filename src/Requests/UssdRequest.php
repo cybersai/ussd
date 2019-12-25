@@ -161,4 +161,20 @@ class UssdRequest
     {
         return $this->network;
     }
+
+    /**
+     * @return array
+     */
+    public function getHistory()
+    {
+        return $this->history;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPayload()
+    {
+        return $this->payload;
+    }
 }

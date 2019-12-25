@@ -22,8 +22,6 @@ class IAmAViewGroup extends TemplateViewGroup
 
     function addView($view)
     {
-        echo "Adding";
         array_push($this->views, $view);
-        echo "New array length is ".count($this->views);
     }
 }

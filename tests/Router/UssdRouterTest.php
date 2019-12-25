@@ -35,7 +35,6 @@ class UssdRouterTest extends TestCase
     {
         $view = (new IAmAView($this->request))->setNext(IAmSimpleView::class)
             ->setContent('I am the first');
-        $view2 = new IAmSimpleView($this->request);
         $this->request->addHistory($view, '*365#');
         $next_view = $this->router->route(1);
         $this->assertEquals('I am simple', $next_view->parseToString());

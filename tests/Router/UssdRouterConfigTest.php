@@ -15,7 +15,7 @@ class UssdRouterConfigTest extends TestCase
     function setUp(): void
     {
         $this->view = new IAmSimpleView([]);
-        $this->view2 = $view2 = new class([]) extends TemplateView {
+        $this->view2 = new class([]) extends TemplateView {
             use SimpleSingleView;
             public function __construct($request)
             {

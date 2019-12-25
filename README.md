@@ -17,11 +17,11 @@ $ composer require cybersai/ussd
 ```
 
 ## Supported USSD providers
- * [korba](http://korbaweb.com)
- * [hubtel](https://developers.hubtel.com/docs/getting-started-with-ussd)
- * [nsano](https://www.nsano.com)
- * [txtghana](https://www.txtghana.com)
- * Fully Extensible
+ *   [korba](http://korbaweb.com)
+ *   [hubtel](https://developers.hubtel.com/docs/getting-started-with-ussd)
+ *   [nsano](https://www.nsano.com)
+ *   [txtghana](https://www.txtghana.com)
+ *   Fully Extensible
 
 ## Documentation
 
